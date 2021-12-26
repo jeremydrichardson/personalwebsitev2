@@ -1,8 +1,10 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import fs from "fs";
+import matter from "gray-matter";
 
-export default function Home() {
+export default function Home({ posts }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -13,9 +15,32 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>Hi, I'm Jeremy Richardson</h1>
+        <h2>Posts</h2>
+        {posts.map((post) => (
+          <h3 key={post.slug}>{post.frontmatter.title}</h3>
+        ))}
       </main>
 
       <footer className={styles.footer}></footer>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const postFiles = fs.readdirSync("posts");
+
+  const posts = postFiles.map((postFile) => {
+    const file = fs.readFileSync("posts/" + postFile, { encoding: "utf-8" });
+    const frontmatter = matter(file).data;
+    const slug = postFile.split(".")[0].slice(11);
+    console.log(slug);
+
+    return { frontmatter, slug };
+  });
+
+  return {
+    props: {
+      posts,
+    },
+  };
 }
