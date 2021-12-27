@@ -4,6 +4,7 @@ date: 2021/3/18
 description: Amplify default image (Amazon Linux 2 - think it's a custom Amplify docker image, can find in a repo) has nvm installed by default to manage node versions.
 tag: AWS, Amplify, CodeBuild, DevOPS, Node
 author: You
+published: false
 ---
 
 # node version management on AWS CI build images

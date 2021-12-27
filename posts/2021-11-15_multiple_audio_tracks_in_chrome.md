@@ -4,6 +4,7 @@ date: 2021/11/15
 description: In order to access multiple audio tracks embedded into an MP4 you must first enable the audioTracks capability (see caniuse for how).
 tag: Chrome, audio, video
 author: You
+published: false
 ---
 
 # Multiple Audio Tracks in Chrome Video Player
@@ -20,16 +21,16 @@ In this example I'm using a select dropdown to list the audio track that can be 
 
 ```jsx
 function handleAudioTrackChange(e) {
-  const videoPlayer = document.getElementById('video-player')
+  const videoPlayer = document.getElementById("video-player");
 
   for (var i = 0; i < videoPlayer.audioTracks.length; i += 1) {
-    videoPlayer.audioTracks[i].enabled = false
+    videoPlayer.audioTracks[i].enabled = false;
   }
-  videoPlayer.audioTracks[e.currentTarget.value].enabled = true
+  videoPlayer.audioTracks[e.currentTarget.value].enabled = true;
 
   // This is to fix a Chrome bug where the audio and video goes out of sync
   // eslint-disable-next-line no-self-assign
-  videoPlayer.currentTime = videoPlayer.currentTime
+  videoPlayer.currentTime = videoPlayer.currentTime;
 }
 ```
 

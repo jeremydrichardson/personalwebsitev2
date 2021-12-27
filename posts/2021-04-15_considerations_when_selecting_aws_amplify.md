@@ -4,6 +4,7 @@ date: 2021/04/15
 description:
 tag: AWS, AWS Amplify
 author: You
+published: false
 ---
 
 # Considerations when selecting AWS Amplify for development

@@ -4,6 +4,7 @@ date: 2021/10/15
 description: I recently began having some issues with my right wrist. It was getting sore making it extremely uncomfortable to work at my computer.
 tag:
 author: You
+published: false
 ---
 
 # Mouse/Trackpad setup

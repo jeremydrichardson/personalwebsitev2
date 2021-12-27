@@ -4,6 +4,7 @@ date: 2021/3/18
 description: Right. I think the main reason against using the samconfig.toml is the secrets issue since you will most likely want to commit it to git. If you add to .gitignore than no problems, works great. Otherwise you could have secrets committed to your repo.
 tag: AWS, AWS SAM, Node
 author: You
+published: false
 ---
 
 # SAM parameter overrides in .env files

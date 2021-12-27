@@ -4,6 +4,7 @@ date: 2021/03/15
 description: I enjoy coding with a good font that includes ligatures and italics. Everyone is always talking about Operator Mono, but at $200, you won't find it in my toolset.
 tag: VS Code
 author: You
+published: false
 ---
 
 # Coding Font

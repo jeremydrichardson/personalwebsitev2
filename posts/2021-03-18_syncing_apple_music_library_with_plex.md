@@ -4,6 +4,7 @@ date: 2021/3/18
 description: I still like to use Apple Music for ripping my CDs (yes I still prefer CDs as a master medium...) and for listening to my music on Apple devices.
 tag: Apple Music, Plex
 author: You
+published: false
 ---
 
 # Sync'ing Apple Music library with Plex Server

@@ -4,6 +4,7 @@ date: 2021/05/15
 description: AppStream 2.0 provides the ability to run scripts before and after a user session. This allows us to do various preparation steps based on custom information for that user.
 tag: AWS, AWS AppStream 2.0, Environment Variables
 author: You
+published: false
 ---
 
 # Environment Variables in AppStream start and end scripts

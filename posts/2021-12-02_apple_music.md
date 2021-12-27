@@ -4,6 +4,7 @@ date: 2021/02/15
 description: Managing an Apple Music library can be a pain in the ass if you have multiple devices, users, servers, etc... I've tried a bunch of things and here is what I've found.
 tag: macOS
 author: You
+published: false
 ---
 
 # Apple Music

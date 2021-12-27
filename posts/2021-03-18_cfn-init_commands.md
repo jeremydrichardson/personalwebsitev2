@@ -4,6 +4,7 @@ date: 2021/3/18
 description: Was super hard to determine what commands could run and the context of those commands from the AWS::CloudFormation::init section.
 tag: AWS, CloudFormation, DevOPS
 author: You
+published: false
 ---
 
 # cfn-init commands

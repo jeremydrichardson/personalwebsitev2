@@ -4,6 +4,7 @@ date: 2021/3/18
 description: It's annoying for users to have to find the Temporary Files folder every time they need to transfer files in or out of AppStream 2.0. To make it slightly easier you can use this script to add any folder to the Quick Access menu in the startup session script.
 tag: aws appstream
 author: You
+published: false
 ---
 
 # Add Temporary Files to Quick Access menu in AppStream

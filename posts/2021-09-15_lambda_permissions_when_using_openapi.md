@@ -4,6 +4,7 @@ date: 2021/09/15
 description: Ran into an issue today where when using an OpenAPI definition for the API in my AWS SAM template, the endpoints were not working. The common "Internal Server Error" didn't give anything to go off of.
 tag: API Gateway, AWS, AWS SAM, OpenAPI
 author: You
+published: false
 ---
 
 # Lambda Permissions When Using an OpenAPI definition with AWS SAM

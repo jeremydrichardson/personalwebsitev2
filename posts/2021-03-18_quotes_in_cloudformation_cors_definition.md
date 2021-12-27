@@ -4,6 +4,7 @@ date: 2021/3/18
 description: I recently began using cfn-include in order to split my YAML files up into more manageable chunks. An unintended side-effect is that cfn-include reformats my entire AWS SAM template (which is a subset of Cloudformation). The syntax for quoting the CORS statements confused me.
 tag: AWS, CloudFormation, CORS
 author: You
+published: false
 ---
 
 # Quotes in CloudFormation CORS definition
