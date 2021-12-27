@@ -6,7 +6,6 @@ import matter from "gray-matter";
 import Post from "../components/Post";
 
 export default function Home({ posts }) {
-  console.log(posts);
   return (
     <div className={styles.container}>
       <Head>
@@ -18,9 +17,11 @@ export default function Home({ posts }) {
       <main className={styles.main}>
         <h1 className={styles.title}>Hi, I&apos;m Jeremy Richardson</h1>
         <h2>Posts</h2>
-        {posts.map((post) => (
-          <Post key={post.slug} post={post} />
-        ))}
+        <article className="container prose prose-sm md:prose">
+          {posts.map((post) => (
+            <Post key={post.slug} post={post} />
+          ))}
+        </article>
       </main>
 
       <footer className={styles.footer}></footer>

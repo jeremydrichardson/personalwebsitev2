@@ -8,8 +8,6 @@ author: You
 published: true
 ---
 
-# AWS API Gateway call fails with authorization
-
 Tags: API Gateway, AWS, AWS SAM, CORS
 
 CORS issues can be some of the worst to debug. Often the error you see doesn't give any information as to the cause.
