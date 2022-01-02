@@ -4,7 +4,7 @@ date: 2021/11/15
 description: In order to access multiple audio tracks embedded into an MP4 you must first enable the audioTracks capability (see caniuse for how).
 tag: Chrome, audio, video
 author: You
-published: false
+published: true
 ---
 
 # Multiple Audio Tracks in Chrome Video Player
@@ -19,7 +19,7 @@ The workaround is to use the `currentTime` property on your video element right 
 
 In this example I'm using a select dropdown to list the audio track that can be selected.
 
-```jsx
+```js
 function handleAudioTrackChange(e) {
   const videoPlayer = document.getElementById("video-player");
 

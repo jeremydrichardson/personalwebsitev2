@@ -89,7 +89,7 @@ img.next-image {
 }
 .profile-picture-border {
   border-radius: 50%;
-  box-shadow: 0 0 0 3px white, 0 0 0 6px #ddd, 0 0 0 9px white;
+  box-shadow: 0 0 0 3px white, 0 0 0 4px #ddd, 0 0 0 9px white;
   max-width: 200px;
   max-height: 200px;
 }

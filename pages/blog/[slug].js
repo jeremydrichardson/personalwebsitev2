@@ -1,26 +1,21 @@
-import { useEffect } from "react";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
-import { remark } from "remark";
-import html from "remark-html";
-import Prism from "prismjs";
-import styles from "../../styles/Home.module.css";
 import Layout from "../../components/Layout";
 import Head from "next/head";
+
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import rehypeStringify from "rehype-stringify";
+import rehypePrism from "rehype-prism-plus";
 
 export default function PostPage({
   frontmatter: { title, date },
   slug,
   content,
 }) {
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      Prism.highlightAll();
-    }
-  }, []);
-
   return (
     <Layout>
       <Head>
@@ -66,7 +61,12 @@ export async function getStaticProps({ params: { slug } }) {
 
   const { data: frontmatter, content } = matter(markdownWithMeta);
 
-  const htmlContent = await remark().use(html).process(content);
+  const htmlContent = await unified()
+    .use(remarkParse)
+    .use(remarkRehype)
+    .use(rehypePrism)
+    .use(rehypeStringify)
+    .process(content);
 
   return {
     props: {
