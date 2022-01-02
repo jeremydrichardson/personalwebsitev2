@@ -39,6 +39,7 @@ h6 {
 }
 h1 {
   font-variation-settings: "wght" 850;
+  line-height: 2.5rem;
 }
 h2 {
   font-variation-settings: "wght" 750;
@@ -54,6 +55,12 @@ h2 {
 
 details summary {
   cursor: pointer;
+}
+
+code:not(.code-highlight) {
+  background-color: #eee;
+  padding: 3px;
+  border-radius: 5px;
 }
 
 img.next-image {
@@ -121,4 +128,11 @@ img.next-image {
 .main {
   max-width: 660px;
   margin: 0 auto;
+}
+
+.post-modified-date,
+.post-create-date,
+.post-tags {
+  font-size: 0.9rem;
+  color: rgb(113, 128, 150);
 }

@@ -31,9 +31,17 @@ export default function PostPage({
         </Link>
         <div className="card card-page">
           <h1 className="post-title">{title}</h1>
-          <div className="post-date">Posted: {createDate}</div>
+          <div className="post-create-date">
+            Posted:&nbsp;
+            <time dateTime={new Date(createDate).toISOString()}>
+              {createDate}
+            </time>
+          </div>
           <div className="post-modified-date">
-            Last modified: {modifiedDate}
+            Last modified:&nbsp;
+            <time dateTime={new Date(modifiedDate).toISOString()}>
+              {modifiedDate}
+            </time>
           </div>
           {tags && <div className="post-tags">Tags: {tags}</div>}
           <div className="post-body">
