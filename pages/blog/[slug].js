@@ -10,11 +10,15 @@ import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import rehypePrism from "rehype-prism-plus";
+import { format } from "date-fns";
+import gitlog from "gitlog";
 
 export default function PostPage({
-  frontmatter: { title, date },
+  frontmatter: { title, tags },
   slug,
   content,
+  modifiedDate,
+  createDate,
 }) {
   return (
     <Layout>
@@ -27,7 +31,11 @@ export default function PostPage({
         </Link>
         <div className="card card-page">
           <h1 className="post-title">{title}</h1>
-          <div className="post-date">Posted on {date}</div>
+          <div className="post-date">Posted: {createDate}</div>
+          <div className="post-modified-date">
+            Last modified: {modifiedDate}
+          </div>
+          {tags && <div className="post-tags">Tags: {tags}</div>}
           <div className="post-body">
             <div dangerouslySetInnerHTML={{ __html: content }}></div>
           </div>
@@ -57,7 +65,10 @@ export async function getStaticProps({ params: { slug } }) {
     .readdirSync("posts")
     .filter((filename) => filename.includes(slug))[0];
 
-  const markdownWithMeta = fs.readFileSync(path.join("posts", file), "utf-8");
+  const fileLocation = path.join("posts", file);
+  const markdownWithMeta = fs.readFileSync(fileLocation, "utf-8");
+
+  const gitCommit = gitlog({ repo: ".", number: 1, file: fileLocation });
 
   const { data: frontmatter, content } = matter(markdownWithMeta);
 
@@ -73,6 +84,8 @@ export async function getStaticProps({ params: { slug } }) {
       frontmatter,
       slug,
       content: htmlContent.toString(),
+      createDate: format(new Date(frontmatter.createDate), "MMM d, yyyy"),
+      modifiedDate: format(new Date(gitCommit[0].authorDate), "MMM d, yyyy"),
     },
   };
 }
