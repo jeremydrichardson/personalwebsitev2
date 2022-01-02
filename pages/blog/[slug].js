@@ -33,13 +33,15 @@ export default function PostPage({
           <h1 className="post-title">{title}</h1>
           <div className="post-create-date">
             Posted:&nbsp;
-            <time dateTime={new Date(createDate).toISOString()}>
+            <time dateTime={createDate && new Date(createDate).toISOString()}>
               {createDate}
             </time>
           </div>
           <div className="post-modified-date">
             Last modified:&nbsp;
-            <time dateTime={new Date(modifiedDate).toISOString()}>
+            <time
+              dateTime={modifiedDate && new Date(modifiedDate).toISOString()}
+            >
               {modifiedDate}
             </time>
           </div>
@@ -79,6 +81,12 @@ export async function getStaticProps({ params: { slug } }) {
   const gitCommit = gitlog({ repo: ".", number: 1, file: fileLocation });
 
   const { data: frontmatter, content } = matter(markdownWithMeta);
+  const createDate = frontmatter.createDate
+    ? format(new Date(frontmatter.createDate), "MMM d, yyyy")
+    : "";
+  const modifiedDate = gitCommit[0].authorDate
+    ? format(new Date(gitCommit[0].authorDate), "MMM d, yyyy")
+    : "";
 
   const htmlContent = await unified()
     .use(remarkParse)
@@ -92,8 +100,8 @@ export async function getStaticProps({ params: { slug } }) {
       frontmatter,
       slug,
       content: htmlContent.toString(),
-      createDate: format(new Date(frontmatter.createDate), "MMM d, yyyy"),
-      modifiedDate: format(new Date(gitCommit[0].authorDate), "MMM d, yyyy"),
+      createDate: createDate,
+      modifiedDate: modifiedDate,
     },
   };
 }

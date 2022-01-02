@@ -14,7 +14,7 @@ export default function Post({ post }) {
           <a className="post-item-more"> Read More →</a>
         </Link>
       </p>
-      <time className="post-item-date">{post.frontmatter.date}</time>
+      <time className="post-item-date">{post.createDate}</time>
     </div>
   );
 }
