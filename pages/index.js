@@ -14,8 +14,25 @@ export default function Home({ posts }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>Hi, I&apos;m Jeremy Richardson</h1>
+      <div className="hero">
+        <div className="hero-container">
+          <div className="hero-content">
+            <h1 className="title">Hi, I&apos;m Jeremy Richardson</h1>
+          </div>
+          <div className="hero-image hero-section">
+            <div className="profile-picture-border">
+              <Image
+                src="/img/jeremy-profile@2x.png"
+                width="200"
+                height="200"
+                className="profile-picture"
+                alt="Jeremy Richardson"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <main className="main">
         <h2>Posts</h2>
         <article className="container prose prose-sm md:prose">
           {posts.map((post) => (
@@ -32,13 +49,15 @@ export default function Home({ posts }) {
 export async function getStaticProps() {
   const postFiles = fs.readdirSync("posts");
 
-  const posts = postFiles.map((postFile) => {
-    const file = fs.readFileSync("posts/" + postFile, { encoding: "utf-8" });
-    const frontmatter = matter(file).data;
-    const slug = postFile.split(".")[0].slice(11);
+  const posts = postFiles
+    .map((postFile) => {
+      const file = fs.readFileSync("posts/" + postFile, { encoding: "utf-8" });
+      const frontmatter = matter(file).data;
+      const slug = postFile.split(".")[0].slice(11);
 
-    return { frontmatter, slug };
-  });
+      return { frontmatter, slug };
+    })
+    .filter((post) => post.frontmatter.published);
 
   return {
     props: {

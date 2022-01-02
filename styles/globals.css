@@ -14,6 +14,10 @@
   font-named-instance: "Italic";
 }
 
+:root {
+  --maximum-width: 660px;
+}
+
 body {
   font-family: "Inter var", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
@@ -65,10 +69,56 @@ img.next-image {
 }
 
 .container {
-  max-width: 660px;
+  max-width: var(--maximum-width);
+  padding: 0 2rem;
 }
 
 .prose {
   font-size: 1rem;
   line-height: 1.75;
+}
+
+.profile-picture {
+  border-radius: 50%;
+  max-width: 200px;
+  /* box-shadow: 0 0 0 3px white, 0 0 0 6px #ddd, 0 0 0 9px white; */
+  background-color: #eee;
+  box-sizing: border-box;
+  /* margin-left: 60vw; */
+  /* margin-bottom: -120px; */
+}
+.profile-picture-border {
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px white, 0 0 0 6px #ddd, 0 0 0 9px white;
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.hero {
+  min-height: 300px;
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+}
+.hero-container {
+  display: flex;
+  align-items: center;
+  max-width: var(--maximum-width);
+}
+.hero-image {
+  flex-basis: 40%;
+}
+.hero-content {
+  flex-basis: 60%;
+}
+
+.title {
+  margin: 0;
+  line-height: 1.15;
+  font-size: 3rem;
+}
+
+.main {
+  max-width: 660px;
+  margin: 0 auto;
 }

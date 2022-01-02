@@ -7,10 +7,6 @@ author: You
 published: true
 ---
 
-# New Mac setup after hard drive upgrade
-
-Tags: Macbook Pro, macOS
-
 # Disable swipe between pages
 
 This seemingly helpful feature ends up being super annoying as I find myself unintentionally moving to previous or next pages when browsing the web in any browser. Disabling this brings back sanity.

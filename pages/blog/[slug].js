@@ -6,6 +6,9 @@ import Link from "next/link";
 import { remark } from "remark";
 import html from "remark-html";
 import Prism from "prismjs";
+import styles from "../../styles/Home.module.css";
+import Layout from "../../components/Layout";
+import Head from "next/head";
 
 export default function PostPage({
   frontmatter: { title, date },
@@ -19,18 +22,23 @@ export default function PostPage({
   }, []);
 
   return (
-    <>
-      <Link href="/">
-        <a className="btn btn-back">Go Back</a>
-      </Link>
-      <div className="card card-page">
-        <h1 className="post-title">{title}</h1>
-        <div className="post-date">Posted on {date}</div>
-        <div className="post-body">
-          <div dangerouslySetInnerHTML={{ __html: content }}></div>
+    <Layout>
+      <Head>
+        <title>Jeremy&apos;s blog - {title}</title>
+      </Head>
+      <div className="container prose prose-sm md:prose">
+        <Link href="/">
+          <a className="btn btn-back">Go Back</a>
+        </Link>
+        <div className="card card-page">
+          <h1 className="post-title">{title}</h1>
+          <div className="post-date">Posted on {date}</div>
+          <div className="post-body">
+            <div dangerouslySetInnerHTML={{ __html: content }}></div>
+          </div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 }
 
