@@ -2,8 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import fs from "fs";
-import matter from "gray-matter";
 import Post from "../components/Post";
+import { getPostBySlug } from "../lib/api";
 
 export default function Home({ posts }) {
   return (
@@ -51,11 +51,12 @@ export async function getStaticProps() {
 
   const posts = postFiles
     .map((postFile) => {
-      const file = fs.readFileSync("posts/" + postFile, { encoding: "utf-8" });
-      const frontmatter = matter(file).data;
+      // const file = fs.readFileSync("posts/" + postFile, { encoding: "utf-8" });
+      // const frontmatter = matter(file).data;
       const slug = postFile.split(".")[0].slice(11);
-
-      return { frontmatter, slug };
+      const post = getPostBySlug(slug);
+      // console.log("post in here", post);
+      return { slug, ...post };
     })
     .filter((post) => post.frontmatter.published);
 

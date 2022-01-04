@@ -1,17 +1,9 @@
 import fs from "fs";
 import path from "path";
-import matter from "gray-matter";
 import Link from "next/link";
 import Layout from "../../components/Layout";
 import Head from "next/head";
-
-import { unified } from "unified";
-import remarkParse from "remark-parse";
-import remarkRehype from "remark-rehype";
-import rehypeStringify from "rehype-stringify";
-import rehypePrism from "rehype-prism-plus";
-import { format } from "date-fns";
-import gitlog from "gitlog";
+import { getPostBySlug, markdownToHtml } from "../../lib/api";
 
 export default function PostPage({
   frontmatter: { title, tags },
@@ -47,7 +39,11 @@ export default function PostPage({
           </div>
           {tags && <div className="post-tags">Tags: {tags}</div>}
           <div className="post-body">
-            <div dangerouslySetInnerHTML={{ __html: content }}></div>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: content,
+              }}
+            ></div>
           </div>
         </div>
       </div>
@@ -71,37 +67,12 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const file = fs
-    .readdirSync("posts")
-    .filter((filename) => filename.includes(slug))[0];
-
-  const fileLocation = path.join("posts", file);
-  const markdownWithMeta = fs.readFileSync(fileLocation, "utf-8");
-
-  const gitCommit = gitlog({ repo: ".", number: 1, file: fileLocation });
-
-  const { data: frontmatter, content } = matter(markdownWithMeta);
-  const createDate = frontmatter.createDate
-    ? format(new Date(frontmatter.createDate), "MMM d, yyyy")
-    : "";
-  const modifiedDate = gitCommit[0].authorDate
-    ? format(new Date(gitCommit[0].authorDate), "MMM d, yyyy")
-    : "";
-
-  const htmlContent = await unified()
-    .use(remarkParse)
-    .use(remarkRehype)
-    .use(rehypePrism)
-    .use(rehypeStringify)
-    .process(content);
+  const { content, ...post } = getPostBySlug(slug);
 
   return {
     props: {
-      frontmatter,
-      slug,
-      content: htmlContent.toString(),
-      createDate: createDate,
-      modifiedDate: modifiedDate,
+      content: await markdownToHtml(content),
+      ...post,
     },
   };
 }
