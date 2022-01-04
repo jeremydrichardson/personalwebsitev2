@@ -1,17 +1,15 @@
 ---
 title: New Mac setup after hard drive upgrade
-createDate: "2021-11-21"
+createDate: 2021-11-21
 description: Recently purchased a new Mac and wanted to document the setup process so next time I have a map and don't have to think up the entire process again.
 tag: Macbook Pro, macOS, Mac Mini
 author: You
 published: true
 ---
 
-# Disable swipe between pages
+I started this page as a log of all the changes I made to my Mac after I upgraded the internal hard drive. I like starting with a fresh install but even though I don't customize a lot, there are a lot of settings to get right in order for it to function the way I like.
 
-This seemingly helpful feature ends up being super annoying as I find myself unintentionally moving to previous or next pages when browsing the web in any browser. Disabling this brings back sanity.
-
-System Preferences > Trackpad > More Gestures > uncheck "Swipe between pages"
+I started to refine this this after moving from my laptop to a new Mac Mini. This is more for my own reference but it may have some helpful hints for those just starting out or even something you might not have thought of before. I'm always looking for better ways to do things so this is ending up being a living document and constantly changing.
 
 # Command Line Apps to Install
 
@@ -23,11 +21,11 @@ If you try to run a command that requires it, macOS will ask if you want to inst
 
 I try to use HomeBrew when possible as it makes updating in the future a lot easier.
 
-### AWS SAM
+### ~~AWS SAM~~
 
 [https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html)
 
-Don't use SAM at the moment so no need to install.
+_Don't use SAM at the moment so no need to install._
 
 ### AWS CLI
 
@@ -107,21 +105,29 @@ Decided against the HomeBrew route as it seemed convoluted. Going with plain clo
 
 # macOS tweaks
 
+## Disable swipe between pages
+
+This seemingly helpful feature ends up being super annoying as I find myself unintentionally moving to previous or next pages when browsing the web in any browser. Disabling this brings back sanity.
+
+_System Preferences > Trackpad > More Gestures > uncheck "Swipe between pages"_
+
 ## Remove listing of tags in finder
 
 I just don't use these on files so they just clutter things up. If anyone has a killer use case I'd love to find a use for these but right now it just seems like more work with little gain.
 
-Finder > Preferences > Sidebar > uncheck Recent Tags
+_Finder > Preferences > Sidebar > uncheck Recent Tags_
 
 ## Turn off Automatic opening of safe download files
 
 Audio files would automatically open in Music when downloaded from Safari which is annoying.
 
-Safari > Preferences > General > Uncheck "Open safe files after downloading"
+_Safari > Preferences > General > Uncheck "Open safe files after downloading"_
 
-### BetterDummy
+### ~~BetterDummy~~
 
-Need this app for my 1440p monitor. Apple for some reason disables the ability to do HiDPI with anything less than 4K so it was either too small or pixelated.
+~~Need this app for my 1440p monitor. Apple for some reason disables the ability to do HiDPI with anything less than 4K so it was either too small or pixelated.~~
+
+Ended up deciding against this. It was too finicky and wasn't worth the hassle for what I needed. Since my 1440p screen is vertical and mostly for email, chat, and terminal, it ends up not being a problem. Hopefully someday Apple will fix this...
 
 [https://github.com/waydabber/BetterDummy](https://github.com/waydabber/BetterDummy)
 
@@ -139,7 +145,7 @@ I used this to sync all my personal documents and files. Great for sharing betwe
 
 ## Microsoft Office
 
-Still a necessary evil in my life and line of work. I installed through the App Store this last go around just to try and keep it simple where things come from and to keep updates regular. Not sure if it makes a difference vs downloading directly from Apple.
+Still a necessary evil in my life and line of work. I installed through the App Store this last go around just to try and keep it simple where things come from and to keep updates regular. Not sure if it makes a difference vs downloading directly from Microsoft.
 
 - Excel
 - OneNote
