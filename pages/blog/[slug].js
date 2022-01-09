@@ -15,8 +15,7 @@ export default function PostPage({
 }) {
   const createDateFormatted = format(parseISO(createDate), "MMM d, yyyy");
   const modifiedDateFormatted = format(parseISO(modifiedDate), "MMM d, yyyy");
-  console.log(createDateFormatted);
-  console.log(modifiedDateFormatted);
+
   return (
     <Layout>
       <Head>

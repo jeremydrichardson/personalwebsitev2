@@ -4,7 +4,7 @@ import styles from "../styles/Home.module.css";
 import fs from "fs";
 import Post from "../components/Post";
 import { getPostBySlug } from "../lib/api";
-import { differenceInDays, parseJSON } from "date-fns";
+import { differenceInDays, parseISO } from "date-fns";
 
 export default function Home({ posts }) {
   return (
@@ -59,10 +59,17 @@ export async function getStaticProps() {
     })
     .filter((post) => post.frontmatter.published)
     .sort((a, b) => {
-      return differenceInDays(
-        parseJSON(b.modifiedDate),
-        parseJSON(a.modifiedDate)
+      const modifiedDays = differenceInDays(
+        parseISO(b.modifiedDate),
+        parseISO(a.modifiedDate)
       );
+      const createDays = differenceInDays(
+        parseISO(b.createDate),
+        parseISO(a.createDate)
+      );
+
+      // first try and sort by modified date, otherwise sort by create date
+      return modifiedDays || createDays;
     });
 
   return {
