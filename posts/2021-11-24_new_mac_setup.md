@@ -1,6 +1,6 @@
 ---
 title: New Mac setup after hard drive upgrade
-createDate: 2021-11-21
+createDate: "2021-11-21"
 description: Recently purchased a new Mac and wanted to document the setup process so next time I have a map and don't have to think up the entire process again.
 tag: Macbook Pro, macOS, Mac Mini
 author: You

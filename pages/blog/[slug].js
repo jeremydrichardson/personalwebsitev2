@@ -4,6 +4,7 @@ import Link from "next/link";
 import Layout from "../../components/Layout";
 import Head from "next/head";
 import { getPostBySlug, markdownToHtml } from "../../lib/api";
+import { format, parseISO } from "date-fns";
 
 export default function PostPage({
   frontmatter: { title, tags },
@@ -12,6 +13,10 @@ export default function PostPage({
   modifiedDate,
   createDate,
 }) {
+  const createDateFormatted = format(parseISO(createDate), "MMM d, yyyy");
+  const modifiedDateFormatted = format(parseISO(modifiedDate), "MMM d, yyyy");
+  console.log(createDateFormatted);
+  console.log(modifiedDateFormatted);
   return (
     <Layout>
       <Head>
@@ -25,18 +30,14 @@ export default function PostPage({
           <h1 className="post-title">{title}</h1>
           <div className="post-create-date">
             Posted:&nbsp;
-            <time dateTime={createDate && new Date(createDate).toISOString()}>
-              {createDate}
-            </time>
+            <time dateTime={createDate}>{createDateFormatted}</time>
           </div>
-          <div className="post-modified-date">
-            Last modified:&nbsp;
-            <time
-              dateTime={modifiedDate && new Date(modifiedDate).toISOString()}
-            >
-              {modifiedDate}
-            </time>
-          </div>
+          {createDateFormatted !== modifiedDateFormatted && (
+            <div className="post-modified-date">
+              Last modified:&nbsp;
+              <time dateTime={modifiedDate}>{modifiedDateFormatted}</time>
+            </div>
+          )}
           {tags && <div className="post-tags">Tags: {tags}</div>}
           <div className="post-body">
             <div

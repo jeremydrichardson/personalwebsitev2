@@ -4,6 +4,7 @@ import styles from "../styles/Home.module.css";
 import fs from "fs";
 import Post from "../components/Post";
 import { getPostBySlug } from "../lib/api";
+import { differenceInDays, parseJSON } from "date-fns";
 
 export default function Home({ posts }) {
   return (
@@ -51,14 +52,18 @@ export async function getStaticProps() {
 
   const posts = postFiles
     .map((postFile) => {
-      // const file = fs.readFileSync("posts/" + postFile, { encoding: "utf-8" });
-      // const frontmatter = matter(file).data;
       const slug = postFile.split(".")[0].slice(11);
       const post = getPostBySlug(slug);
-      // console.log("post in here", post);
+
       return { slug, ...post };
     })
-    .filter((post) => post.frontmatter.published);
+    .filter((post) => post.frontmatter.published)
+    .sort((a, b) => {
+      return differenceInDays(
+        parseJSON(b.modifiedDate),
+        parseJSON(a.modifiedDate)
+      );
+    });
 
   return {
     props: {

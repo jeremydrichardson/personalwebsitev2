@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { format, parseISO } from "date-fns";
 
 export default function Post({ post }) {
   return (
@@ -9,12 +10,14 @@ export default function Post({ post }) {
         </Link>
       </h3>
       <p className="post-item-desc">
-        {post.frontmatter.description}
-        <Link href={`/blog/${post.slug}`}>
-          <a className="post-item-more"> Read More →</a>
+        {post.frontmatter.description}&nbsp;
+        <Link href={`/blog/${post.slug}`} className="post-link">
+          <a className="post-item-more">Read More →</a>
         </Link>
       </p>
-      <time className="post-item-date">{post.createDate}</time>
+      <time className="post-item-date">
+        {format(parseISO(post.createDate), "MMM d, yyyy")}
+      </time>
     </div>
   );
 }

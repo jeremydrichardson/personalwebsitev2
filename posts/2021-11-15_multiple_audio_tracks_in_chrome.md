@@ -1,6 +1,6 @@
 ---
 title: Multiple Audio Tracks in Chrome Video Player
-createDate: 2021/11/15
+createDate: "2021-11-15"
 description: In order to access multiple audio tracks embedded into an MP4 you must first enable the audioTracks capability (see caniuse for how).
 tags: Chrome, audio, video
 author: You

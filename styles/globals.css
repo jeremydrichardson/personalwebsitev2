@@ -28,6 +28,7 @@ body {
   font-variation-settings: "wght" 450;
   font-variant: common-ligatures contextual;
   letter-spacing: -0.02em;
+  background-color: #f8f8ff;
 }
 b,
 strong,
@@ -135,4 +136,9 @@ img.next-image {
 .post-tags {
   font-size: 0.9rem;
   color: rgb(113, 128, 150);
+}
+
+.post-item-more {
+  text-transform: uppercase;
+  font-size: 75%;
 }

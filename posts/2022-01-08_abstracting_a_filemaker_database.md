@@ -1,6 +1,6 @@
 ---
 title: Abstracting a FileMaker database
-createDate: 2022-01-08
+createDate: "2022-01-08"
 description: Been working on a project that requires the transformation of data from a FileMaker database into an api. Here are some of the methods we're using to do this without rewriting everything from the ground up.
 tag: FileMaker, REST, Javascript
 author: You
