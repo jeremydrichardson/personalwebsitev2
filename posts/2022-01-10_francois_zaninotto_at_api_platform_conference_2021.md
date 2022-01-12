@@ -9,7 +9,7 @@ published: true
 
 I just watch a video by Marmelab founder and CEO François Zaninotto at the API Platform Conference 2021. In it he detailed out some of the great benefits and features inherent in react-admin. I often like watching conference talks like this as they don’t tend to be beginner level topics but cover real world problems that I am dealing with.
 
-[https://www.youtube.com/watch?v=3m5An-s0r-k](https://www.youtube.com/watch?v=3m5An-s0r-k)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3m5An-s0r-k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 I thought to highlight some of my favorite points both for my own second brain and for anyone who wants a taste of what he covered.
 
