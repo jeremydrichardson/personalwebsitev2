@@ -5,6 +5,7 @@ import fs from "fs";
 import Post from "../components/Post";
 import { getPostBySlug } from "../lib/api";
 import { differenceInDays, parseISO } from "date-fns";
+import profilePic from "../public/img/jeremy-profile@2x.png";
 
 export default function Home({ posts }) {
   return (
@@ -23,7 +24,7 @@ export default function Home({ posts }) {
           <div className="hero-image hero-section">
             <div className="profile-picture-border">
               <Image
-                src="/img/jeremy-profile@2x.png"
+                src={profilePic}
                 width="200"
                 height="200"
                 className="profile-picture"
