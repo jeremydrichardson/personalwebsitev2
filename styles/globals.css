@@ -142,3 +142,12 @@ img.next-image {
   text-transform: uppercase;
   font-size: 75%;
 }
+
+.alert {
+  padding: 10px;
+}
+.alert-primary {
+  border: 1px solid #0074de;
+  background-color: #9ec3eb;
+  border-radius: 5px;
+}
