@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import fs from "fs";
 import Post from "../components/Post";
-import { getPostBySlug } from "../lib/api";
+import { getPostBySlug, markdownToHtml } from "../lib/api";
 import { differenceInDays, parseISO } from "date-fns";
 import profilePic from "../public/img/jeremy-profile@2x.png";
 
@@ -51,27 +51,37 @@ export default function Home({ posts }) {
 export async function getStaticProps() {
   const postFiles = fs.readdirSync("posts");
 
-  const posts = postFiles
-    .map((postFile) => {
+  const posts = await Promise.all(
+    postFiles.map(async (postFile) => {
       const slug = postFile.split(".")[0].slice(11);
       const post = getPostBySlug(slug);
+      const HtmlDescription = await markdownToHtml(
+        post.frontmatter.description
+      );
 
-      return { slug, ...post };
+      return {
+        slug,
+        ...post,
+        frontmatter: { ...post.frontmatter, description: HtmlDescription },
+      };
     })
-    .filter((post) => post.frontmatter.published)
-    .sort((a, b) => {
-      const modifiedDays = differenceInDays(
-        parseISO(b.modifiedDate),
-        parseISO(a.modifiedDate)
-      );
-      const createDays = differenceInDays(
-        parseISO(b.createDate),
-        parseISO(a.createDate)
-      );
+  ).then((posts) =>
+    posts
+      .filter((post) => post.frontmatter.published)
+      .sort((a, b) => {
+        const modifiedDays = differenceInDays(
+          parseISO(b.modifiedDate),
+          parseISO(a.modifiedDate)
+        );
+        const createDays = differenceInDays(
+          parseISO(b.createDate),
+          parseISO(a.createDate)
+        );
 
-      // first try and sort by modified date, otherwise sort by create date
-      return modifiedDays || createDays;
-    });
+        // first try and sort by modified date, otherwise sort by create date
+        return modifiedDays || createDays;
+      })
+  );
 
   return {
     props: {

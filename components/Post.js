@@ -9,12 +9,12 @@ export default function Post({ post }) {
           <a className="post-item-title">{post.frontmatter.title}</a>
         </Link>
       </h3>
-      <p className="post-item-desc">
-        {post.frontmatter.description}&nbsp;
-        <Link href={`/blog/${post.slug}`} className="post-link">
-          <a className="post-item-more">Read More →</a>
-        </Link>
-      </p>
+      <div
+        className="post-item-desc"
+        dangerouslySetInnerHTML={{
+          __html: post.frontmatter.description,
+        }}
+      />
       <time className="post-item-date">
         {format(parseISO(post.createDate), "MMM d, yyyy")}
       </time>
