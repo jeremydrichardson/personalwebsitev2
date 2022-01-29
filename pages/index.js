@@ -3,9 +3,13 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import fs from "fs";
 import Post from "../components/Post";
-import { getPostBySlug, markdownToHtml } from "../lib/api";
+import { getPostBySlug } from "../lib/api";
 import { differenceInDays, parseISO } from "date-fns";
 import profilePic from "../public/img/jeremy-profile@2x.png";
+import { serialize } from "next-mdx-remote/serialize";
+import rehypePrism from "rehype-prism-plus";
+import remarkGfm from "remark-gfm";
+import imageSize from "rehype-img-size";
 
 export default function Home({ posts }) {
   return (
@@ -55,14 +59,18 @@ export async function getStaticProps() {
     postFiles.map(async (postFile) => {
       const slug = postFile.split(".")[0].slice(11);
       const post = getPostBySlug(slug);
-      const HtmlDescription = await markdownToHtml(
-        post.frontmatter.description
-      );
+
+      const mdxSource = await serialize(post.frontmatter.description, {
+        mdxOptions: {
+          rehypePlugins: [rehypePrism, [imageSize, { dir: "public" }]],
+          remarkPlugins: [remarkGfm],
+        },
+      });
 
       return {
         slug,
         ...post,
-        frontmatter: { ...post.frontmatter, description: HtmlDescription },
+        frontmatter: { ...post.frontmatter, description: mdxSource },
       };
     })
   ).then((posts) =>

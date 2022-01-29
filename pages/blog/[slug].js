@@ -3,8 +3,14 @@ import path from "path";
 import Link from "next/link";
 import Layout from "../../components/Layout";
 import Head from "next/head";
-import { getPostBySlug, markdownToHtml } from "../../lib/api";
+import { getPostBySlug } from "../../lib/api";
 import { format, parseISO } from "date-fns";
+import { serialize } from "next-mdx-remote/serialize";
+import { MDXRemote } from "next-mdx-remote";
+import rehypePrism from "rehype-prism-plus";
+import remarkGfm from "remark-gfm";
+import imageSize from "rehype-img-size";
+import mdxComponents from "../../components/mdxComponents";
 
 export default function PostPage({
   frontmatter: { title, tags },
@@ -43,11 +49,7 @@ export default function PostPage({
           )}
           {tags && <div className="post-tags">Tags: {tags}</div>}
           <div className="post-body">
-            <div
-              dangerouslySetInnerHTML={{
-                __html: content,
-              }}
-            ></div>
+            <MDXRemote {...content} components={mdxComponents} />
           </div>
         </div>
       </div>
@@ -73,9 +75,16 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params: { slug } }) {
   const { content, ...post } = getPostBySlug(slug);
 
+  const mdxSource = await serialize(content, {
+    mdxOptions: {
+      rehypePlugins: [rehypePrism, [imageSize, { dir: "public" }]],
+      remarkPlugins: [remarkGfm],
+    },
+  });
+
   return {
     props: {
-      content: await markdownToHtml(content),
+      content: mdxSource,
       ...post,
     },
   };
