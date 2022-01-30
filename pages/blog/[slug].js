@@ -11,6 +11,7 @@ import rehypePrism from "rehype-prism-plus";
 import remarkGfm from "remark-gfm";
 import imageSize from "rehype-img-size";
 import mdxComponents from "../../components/mdxComponents";
+import { ErrorBoundary } from "../../components/ErrorBoundary";
 
 export default function PostPage({
   frontmatter: { title, tags },
@@ -27,33 +28,35 @@ export default function PostPage({
     : null;
 
   return (
-    <Layout>
-      <Head>
-        <title>Jeremy&apos;s blog - {title}</title>
-      </Head>
-      <div className="container prose prose-sm md:prose">
-        <Link href="/">
-          <a className="btn btn-back">Go Back</a>
-        </Link>
-        <div className="card card-page">
-          <h1 className="post-title">{title}</h1>
-          <div className="post-create-date">
-            Posted:&nbsp;
-            <time dateTime={createDate}>{createDateFormatted}</time>
-          </div>
-          {createDateFormatted !== modifiedDateFormatted && (
-            <div className="post-modified-date">
-              Last modified:&nbsp;
-              <time dateTime={modifiedDate}>{modifiedDateFormatted}</time>
+    <ErrorBoundary>
+      <Layout>
+        <Head>
+          <title>Jeremy&apos;s blog - {title}</title>
+        </Head>
+        <div className="container prose prose-sm md:prose">
+          <Link href="/">
+            <a className="btn btn-back">Go Back</a>
+          </Link>
+          <div className="card card-page">
+            <h1 className="post-title">{title}</h1>
+            <div className="post-create-date">
+              Posted:&nbsp;
+              <time dateTime={createDate}>{createDateFormatted}</time>
             </div>
-          )}
-          {tags && <div className="post-tags">Tags: {tags}</div>}
-          <div className="post-body">
-            <MDXRemote {...content} components={mdxComponents} />
+            {createDateFormatted !== modifiedDateFormatted && (
+              <div className="post-modified-date">
+                Last modified:&nbsp;
+                <time dateTime={modifiedDate}>{modifiedDateFormatted}</time>
+              </div>
+            )}
+            {tags && <div className="post-tags">Tags: {tags}</div>}
+            <div className="post-body">
+              <MDXRemote {...content} components={mdxComponents} />
+            </div>
           </div>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </ErrorBoundary>
   );
 }
 
