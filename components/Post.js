@@ -11,11 +11,10 @@ export default function Post({ post }) {
           <a className="post-item-title">{post.frontmatter.title}</a>
         </Link>
       </h3>
-      <MDXRemote {...post.frontmatter.description} components={mdxComponents} />
-
       <time className="post-item-date">
         {format(parseISO(post.createDate), "MMM d, yyyy")}
       </time>
+      <MDXRemote {...post.frontmatter.description} components={mdxComponents} />
     </div>
   );
 }

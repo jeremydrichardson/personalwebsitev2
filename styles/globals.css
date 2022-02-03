@@ -68,6 +68,10 @@ img.next-image {
   margin: 0;
 }
 
+time {
+  font-size: 80%;
+}
+
 .prose a {
   color: #0074de;
 }

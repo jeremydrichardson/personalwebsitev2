@@ -80,6 +80,7 @@ export default function Home({ posts }) {
             building tools that people love to use, especially in the creative
             and entertainment realms.
           </p>
+          &nbsp;
           <h2>Tech</h2>
           <div className="tech-logos">
             <DiReact size="3em" title="React" />
@@ -92,6 +93,7 @@ export default function Home({ posts }) {
             <SiSwagger size="3em" title="OpenAPI/Swagger" />
             <FaGitAlt size="3em" title="Git" />
           </div>
+          &nbsp;
           <h2>Posts</h2>
           <article className="container prose prose-sm md:prose">
             {posts.map((post) => (
