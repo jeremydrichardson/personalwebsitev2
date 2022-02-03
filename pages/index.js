@@ -11,15 +11,15 @@ import rehypePrism from "rehype-prism-plus";
 import remarkGfm from "remark-gfm";
 import imageSize from "rehype-img-size";
 import { ErrorBoundary } from "../components/ErrorBoundary";
-import { DiReact, DiSass } from "react-icons/Di";
+import { DiReact, DiSass } from "react-icons/di";
 import {
   IoLogoJavascript,
   IoLogoHtml5,
   IoLogoCss3,
   IoLogoNodejs,
 } from "react-icons/io5";
-import { FaAws, FaGitAlt } from "react-icons/Fa";
-import { SiSwagger } from "react-icons/Si";
+import { FaAws, FaGitAlt } from "react-icons/fa";
+import { SiSwagger } from "react-icons/si";
 
 export default function Home({ posts }) {
   return (
