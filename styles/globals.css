@@ -151,3 +151,8 @@ img.next-image {
   background-color: #9ec3eb;
   border-radius: 5px;
 }
+
+.tech-logos {
+  display: flex;
+  justify-content: space-between;
+}
