@@ -160,3 +160,33 @@ time {
   display: flex;
   justify-content: space-between;
 }
+
+.tech-tooltip {
+  transform: translateY(-110%);
+  position: absolute;
+  opacity: 0;
+  transition: 0.3s opacity;
+}
+.tech-logos:hover .tech-tooltip {
+  opacity: 1;
+}
+.tech-tooltip-content {
+  background-color: white;
+}
+.tech-tooltip-triangle {
+  transform: translateY(-100%);
+  position: absolute;
+  opacity: 0;
+  transition: 0.3s opacity;
+}
+.tech-logos:hover .tech-tooltip-triangle {
+  opacity: 1;
+}
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+
+  border-top: 20px solid #f00;
+}

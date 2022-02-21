@@ -20,6 +20,7 @@ import {
 } from "react-icons/io5";
 import { FaAws, FaGitAlt } from "react-icons/fa";
 import { SiSwagger } from "react-icons/si";
+import TechIcon from "../components/TechIcon";
 
 export default function Home({ posts }) {
   return (
@@ -82,9 +83,26 @@ export default function Home({ posts }) {
           </p>
           &nbsp;
           <h2>Tech</h2>
-          <div className="tech-logos">
-            <DiReact size="3em" title="React" />
-            <IoLogoJavascript size="3em" title="Javascript" />
+          <div className="tech-logos" style={{ position: "relative" }}>
+            <div className="tech-tooltip">
+              <div className="tech-tooltip-content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Curabitur rhoncus mollis sem commodo rutrum. Maecenas eleifend
+                turpis ut magna egestas facilisis. Fusce finibus scelerisque
+                libero, eu pulvinar ante. Aenean sed erat in leo faucibus
+                luctus. Praesent vitae urna gravida, luctus ex ut, consectetur
+                velit. Vestibulum elementum nisl sed tortor maximus suscipit.
+                Vestibulum et felis eros. Maecenas vitae posuere odio. Praesent
+                interdum posuere sem vel ultricies. Donec vitae mauris eget quam
+                eleifend egestas sed vel velit. Ut a dolor tincidunt, convallis
+                risus in, sagittis nisl. Nunc ac accumsan enim, eu tincidunt
+                tortor. Pellentesque maximus massa odio, vitae facilisis augue
+                condimentum facilisis.
+              </div>
+            </div>
+            <TechIcon Icon={DiReact} title="React" />
+            <TechIcon Icon={IoLogoJavascript} title="Javascript" />
+
             <IoLogoHtml5 size="3em" title="HTML5" />
             <IoLogoCss3 size="3em" title="CSS3" />
             <DiSass size="3em" title="Sass" />
