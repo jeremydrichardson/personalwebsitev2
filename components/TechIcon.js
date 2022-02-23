@@ -1,8 +1,9 @@
-export default function TechIcon({ Icon, title }) {
+export default function TechIcon({ Icon, title, tooltip }) {
   return (
     <>
-      <div className="tech-tooltip-triangle arrow-down" />
-      <Icon title={title} size="3em" />
+      <div className="tech-tooltip" data-text={tooltip}>
+        <Icon title={title} size="3em" />
+      </div>
     </>
   );
 }

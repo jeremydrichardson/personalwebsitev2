@@ -84,26 +84,27 @@ export default function Home({ posts }) {
           &nbsp;
           <h2>Tech</h2>
           <div className="tech-logos" style={{ position: "relative" }}>
-            <div className="tech-tooltip">
-              <div className="tech-tooltip-content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Curabitur rhoncus mollis sem commodo rutrum. Maecenas eleifend
-                turpis ut magna egestas facilisis. Fusce finibus scelerisque
-                libero, eu pulvinar ante. Aenean sed erat in leo faucibus
-                luctus. Praesent vitae urna gravida, luctus ex ut, consectetur
-                velit. Vestibulum elementum nisl sed tortor maximus suscipit.
-                Vestibulum et felis eros. Maecenas vitae posuere odio. Praesent
-                interdum posuere sem vel ultricies. Donec vitae mauris eget quam
-                eleifend egestas sed vel velit. Ut a dolor tincidunt, convallis
-                risus in, sagittis nisl. Nunc ac accumsan enim, eu tincidunt
-                tortor. Pellentesque maximus massa odio, vitae facilisis augue
-                condimentum facilisis.
-              </div>
-            </div>
-            <TechIcon Icon={DiReact} title="React" />
-            <TechIcon Icon={IoLogoJavascript} title="Javascript" />
-
-            <IoLogoHtml5 size="3em" title="HTML5" />
+            <TechIcon
+              Icon={DiReact}
+              title="React"
+              tooltip="I love working in React! Its simplicity belies its power and flexibility. 
+                It comes with the danger of decision fatigue but with experience I have found the 
+                packages and methodologies that serve my purposes."
+            />
+            <TechIcon
+              Icon={IoLogoJavascript}
+              title="Javascript"
+              tooltip="Been working with Javascript since the late 90s. Used many of the libraries 
+                that dealt with Javascript and browser shortcomings (Mootools, Prototype, jQuery, etc...). 
+                Now I attempt vanilla Javascript first before reaching for a custom library from npm."
+            />
+            <TechIcon
+              Icon={IoLogoHtml5}
+              title="HTML5"
+              tooltip="HTML and I go way back to building band sites in the mid-90s. These days JSX keeps 
+                me grounded in HTML fundamentals, one of the reasons I like it so much. I still  
+                keep abreast of HTML trends in my quest to find the best semantic answer to a problem."
+            />
             <IoLogoCss3 size="3em" title="CSS3" />
             <DiSass size="3em" title="Sass" />
             <IoLogoNodejs size="3em" title="NodeJS" />

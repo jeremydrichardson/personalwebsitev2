@@ -162,6 +162,64 @@ time {
 }
 
 .tech-tooltip {
+  position: relative; /* making the .tooltip span a container for the tooltip text */
+}
+
+.tech-tooltip:hover:before {
+  opacity: 1;
+}
+.tech-tooltip:before {
+  content: attr(data-text); /* here's the magic */
+  position: absolute;
+
+  /* vertically center */
+  /* top: 50%; */
+  /* transform: translateY(-50%); */
+  transform: translateY(-100%);
+  margin-top: -10px;
+
+  /* move to right */
+  left: -50%;
+  /* margin-left: 15px; and add a small left margin */
+
+  /* basic styles */
+  width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  background: #000;
+  color: #fff;
+  text-align: left;
+  line-height: 1.5;
+
+  opacity: 0;
+  transition: 0.3s opacity;
+}
+.tech-tooltip:after {
+  content: "";
+  position: absolute;
+
+  /* position tooltip correctly */
+  left: 50%;
+  margin-left: -10px;
+  top: -10px;
+
+  /* vertically center */
+  /* top: 50%; */
+  /* transform: translateY(-50%); */
+  /* transform: translateY(-105%); */
+
+  /* the arrow */
+  border: 10px solid #000;
+  border-color: black transparent transparent transparent;
+
+  opacity: 0;
+  transition: 0.3s opacity;
+}
+.tech-tooltip:hover:before,
+.tech-tooltip:hover:after {
+  opacity: 1;
+}
+/* .tech-tooltip {
   transform: translateY(-110%);
   position: absolute;
   opacity: 0;
@@ -189,4 +247,4 @@ time {
   border-right: 20px solid transparent;
 
   border-top: 20px solid #f00;
-}
+} */
