@@ -15,19 +15,38 @@ However, I would like to use Plex more so I'm not stuck in the Apple walled gard
 
 Make sure you have the Samba share connected before running this. Find out how to do this in the blog [Samba file shares on Raspberry Pi](/blog/samba_file_shares_on_raspberry_pi).
 
+If this is setup properly you should be able to do an `ls` at the folder from the terminal:
+
+```bash
+cd /Volumes/Music
+ls
+```
+
 ## Rsync
 
 I'm just using the classic rsync CLI command to sync the libraries over my local network:
 
+~~rsync --progress --partial -avz ~/Music/Media.localized/Music/ /Volumes/Music~~
+
+### Update
+
+I realized that it was still trying to copy everything each time with the above command. After doing a little digging I found a [StackExchange](/https://unix.stackexchange.com/) post titled "[See only changes when running rsync](https://unix.stackexchange.com/questions/341413/see-only-changes-when-running-rsync)" that helped me figure it out.
+
+In short, the -a (archive) option isn't able to fully replicate the permissions due to the difference in partition types. Since -a is a shortened version of `-rlptgoD`, I first started with that. Then remove the `-pgo` which deals with the permissions that aren't supported.
+
+Then we added `-i` which only shows the files that have changed making it easier to spot what will get copied when we do the dry run.
+
+Then we end up with:
+
 ```bash
-rsync --progress --partial -avz ~/Music/Media.localized/Music/ /Volumes/Music
+// dry run
+rsync --progress --partial --dry-run -rltDvzi ~/Music/Media.localized/Music/ /Volumes/Music
+
+// execute
+rsync --progress --partial -rltDvzi ~/Music/Media.localized/Music/ /Volumes/Music
 ```
 
-I always recommend running it first as a dry run
-
-```bash
-rsync --progress --partial --dry-run -avz ~/Music/Media.localized/Music/ /Volumes/Music
-```
+~~
 
 ## Apple Music Tips
 
