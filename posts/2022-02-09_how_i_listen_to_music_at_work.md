@@ -27,6 +27,7 @@ You can also search for other albums and singles that are available and save the
 
 - **Lo-fi Hip-hop** - Great for times when I really need to focus. Mostly instrumental with a calm and grooving vibe.
 - **Thievery Corporation** - Another primarily instrumental station that works great for background music.
+- **Vintage Chill Electronic** - This one probably shows my age. Describes itself as _Mellow electronica classics_.
 
 ## Plex
 
