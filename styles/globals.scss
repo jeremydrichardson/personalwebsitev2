@@ -72,10 +72,6 @@ time {
   font-size: 80%;
 }
 
-.prose a {
-  color: #0074de;
-}
-
 .nav-line .nav-link {
   color: #69778c;
 }
@@ -88,6 +84,10 @@ time {
 .prose {
   font-size: 1rem;
   line-height: 1.75;
+
+  a {
+    color: #0074de;
+  }
 }
 
 .profile-picture {
@@ -121,9 +121,10 @@ time {
   transform: skew(0, 0);
   flex-basis: 40%;
   transition: 0.3s transform;
-}
-.hero-image:hover {
-  transform: rotate3d(-1, 1, 0.3, 30deg);
+
+  &:hover {
+    transform: rotate3d(-1, 1, 0.3, 30deg);
+  }
 }
 .hero-content {
   flex-basis: 60%;
@@ -168,88 +169,53 @@ time {
 
 .tech-tooltip {
   position: relative; /* making the .tooltip span a container for the tooltip text */
-}
 
-.tech-tooltip:hover:before {
-  opacity: 1;
-}
-.tech-tooltip:before {
-  content: attr(data-text); /* here's the magic */
-  position: absolute;
+  &:hover:before {
+    opacity: 1;
+  }
 
-  /* vertically center */
-  /* top: 50%; */
-  /* transform: translateY(-50%); */
-  transform: translateY(-100%);
-  margin-top: -10px;
+  &:before {
+    content: attr(data-text); /* here's the magic */
+    position: absolute;
 
-  /* move to right */
-  left: -50%;
-  /* margin-left: 15px; and add a small left margin */
+    transform: translateY(-100%);
+    margin-top: -10px;
 
-  /* basic styles */
-  width: 400px;
-  padding: 20px;
-  border-radius: 10px;
-  background: #000;
-  color: #fff;
-  text-align: left;
-  line-height: 1.5;
+    /* move to right */
+    left: -50%;
 
-  opacity: 0;
-  transition: 0.3s opacity;
-}
-.tech-tooltip:after {
-  content: "";
-  position: absolute;
+    /* basic styles */
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    background: #000;
+    color: #fff;
+    text-align: left;
+    line-height: 1.5;
 
-  /* position tooltip correctly */
-  left: 50%;
-  margin-left: -10px;
-  top: -10px;
+    opacity: 0;
+    transition: 0.3s opacity;
+  }
 
-  /* vertically center */
-  /* top: 50%; */
-  /* transform: translateY(-50%); */
-  /* transform: translateY(-105%); */
+  &:after {
+    content: "";
+    position: absolute;
 
-  /* the arrow */
-  border: 10px solid #000;
-  border-color: black transparent transparent transparent;
+    /* position tooltip correctly */
+    left: 50%;
+    margin-left: -10px;
+    top: -10px;
 
-  opacity: 0;
-  transition: 0.3s opacity;
-}
-.tech-tooltip:hover:before,
-.tech-tooltip:hover:after {
-  opacity: 1;
-}
-/* .tech-tooltip {
-  transform: translateY(-110%);
-  position: absolute;
-  opacity: 0;
-  transition: 0.3s opacity;
-}
-.tech-logos:hover .tech-tooltip {
-  opacity: 1;
-}
-.tech-tooltip-content {
-  background-color: white;
-}
-.tech-tooltip-triangle {
-  transform: translateY(-100%);
-  position: absolute;
-  opacity: 0;
-  transition: 0.3s opacity;
-}
-.tech-logos:hover .tech-tooltip-triangle {
-  opacity: 1;
-}
-.arrow-down {
-  width: 0;
-  height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
+    /* the arrow */
+    border: 10px solid #000;
+    border-color: black transparent transparent transparent;
 
-  border-top: 20px solid #f00;
-} */
+    opacity: 0;
+    transition: 0.3s opacity;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    opacity: 1;
+  }
+}
