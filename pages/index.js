@@ -105,12 +105,42 @@ export default function Home({ posts }) {
                 me grounded in HTML fundamentals, one of the reasons I like it so much. I still  
                 keep abreast of HTML trends in my quest to find the best semantic answer to a problem."
             />
-            <IoLogoCss3 size="3em" title="CSS3" />
-            <DiSass size="3em" title="Sass" />
-            <IoLogoNodejs size="3em" title="NodeJS" />
-            <FaAws size="3em" title="AWS" />
-            <SiSwagger size="3em" title="OpenAPI/Swagger" />
-            <FaGitAlt size="3em" title="Git" />
+            <TechIcon
+              Icon={IoLogoCss3}
+              title="CSS3"
+              tooltip="Been using CSS for a long time and come through a number
+              of iterations (remember floats and clearfix?). I'm mostly using CSS within a framework of somekind these
+              days but understanding the roots and CSS foundations allow me to be effective with them."
+            />
+            <TechIcon Icon={DiSass} title="Sass" tooltip="" />
+            <TechIcon
+              Icon={IoLogoNodejs}
+              title="NodeJS"
+              tooltip="Node has been integral as we built our API. 
+              Node was used to ingest and transform data on the fly to the new API architecture using Express. Of course
+              it also underpins all our tooling for building, validating, and testing our code."
+            />
+            <TechIcon
+              Icon={FaAws}
+              title="AWS"
+              tooltip="AWS is amazing. I have worked with a number of AWS
+              services that have provided amazing flexibility in our products. I have dabled as a devops
+              engineer using infrastructure as code to build our products. "
+            />
+            <TechIcon
+              Icon={SiSwagger}
+              title="OpenAPI/Swagger"
+              tooltip="I'm always looking to find the standards that
+              can guide the architecture of the systems I build. OpenAPI provided a flexible standard that we could use to
+              describe our API both to the interacting systems and to our human users."
+            />
+            <TechIcon
+              Icon={FaGitAlt}
+              title="Git"
+              tooltip="Git provides me the confidence to build fast and not worry about
+              losing anything. I have implemented Git tooling to validate commit messages as well as use those messages to
+              automatically build changelogs using semantic versioning."
+            />
           </div>
           &nbsp;
           <h2>Posts</h2>
