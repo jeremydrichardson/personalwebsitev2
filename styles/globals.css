@@ -118,7 +118,12 @@ time {
   max-width: var(--maximum-width);
 }
 .hero-image {
+  transform: skew(0, 0);
   flex-basis: 40%;
+  transition: 0.3s transform;
+}
+.hero-image:hover {
+  transform: rotate3d(-1, 1, 0.3, 30deg);
 }
 .hero-content {
   flex-basis: 60%;
