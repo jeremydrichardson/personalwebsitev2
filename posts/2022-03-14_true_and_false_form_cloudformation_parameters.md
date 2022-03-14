@@ -1,7 +1,7 @@
 ---
 title: True and false for CloudFormation parameters
 createDate: "2022-03-14"
-description: CloudFormation doesn’t offer an official boolean type when dealing with parameters, but I’ve found that the coercion of values works pretty well. Using this method helps to avoid a lot of unnecessary if statements in our templates..
+description: CloudFormation doesn’t offer an official boolean type when dealing with parameters, but I’ve found that the coercion of values works pretty well. Using this method helps to avoid a lot of unnecessary if statements in our templates.
 tag: AWS, CloudFormation
 author: You
 published: true
