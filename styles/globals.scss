@@ -14,8 +14,10 @@
   font-named-instance: "Italic";
 }
 
+$maximum-width: 660px;
+
 :root {
-  --maximum-width: 660px;
+  --maximum-width: $maximum-width;
 }
 
 body {
@@ -111,23 +113,29 @@ time {
   padding: 3rem;
   display: flex;
   justify-content: center;
+  width: var();
 }
 .hero-container {
   display: flex;
   align-items: center;
   max-width: var(--maximum-width);
+  flex-wrap: wrap;
+  // flex-direction: column-reverse;
 }
 .hero-image {
   transform: skew(0, 0);
-  flex-basis: 40%;
+  // flex-basis: 40%;
   transition: 0.3s transform;
 
   &:hover {
     transform: rotate3d(-1, 1, 0.3, 30deg);
   }
 }
-.hero-content {
-  flex-basis: 60%;
+@media screen and (min-width: $maximum-width) {
+  .hero-content {
+    // flex-basis: 60%;
+    max-width: 60%;
+  }
 }
 
 .title {
@@ -163,13 +171,36 @@ time {
 }
 
 .tech-logos {
+  position: relative;
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.tech-description {
+  position: absolute;
+  transform: translateY(-120%);
+  margin-top: -10px;
+  margin: -10px 10px 10px 10px;
+  background: #000;
+  color: #fff;
+  line-height: 1.5;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .tech-tooltip {
-  position: relative; /* making the .tooltip span a container for the tooltip text */
+  // position: relative; /* making the .tooltip span a container for the tooltip text */
 
+  svg {
+    transition: 0.3s transform;
+    margin: 10px;
+  }
+
+  svg:hover {
+    transform: scale3d(1.5, 1.5, 1.5) rotate3d(1, 1, 0.5, 30deg);
+    transition: 0.3s transform;
+  }
   &:hover:before {
     opacity: 1;
   }
@@ -178,15 +209,16 @@ time {
     content: attr(data-text); /* here's the magic */
     position: absolute;
 
-    transform: translateY(-100%);
-    margin-top: -10px;
+    transform: translateY(-130%);
+    // margin-top: -10px;
 
     /* move to right */
-    left: -50%;
+    left: 0;
 
     /* basic styles */
-    width: 400px;
+    // width: 400px;
     padding: 20px;
+    margin: 10px;
     border-radius: 10px;
     background: #000;
     color: #fff;
@@ -197,25 +229,25 @@ time {
     transition: 0.3s opacity;
   }
 
-  &:after {
-    content: "";
-    position: absolute;
+  // &:after {
+  //   content: "";
+  //   position: absolute;
 
-    /* position tooltip correctly */
-    left: 50%;
-    margin-left: -10px;
-    top: -10px;
+  //   /* position tooltip correctly */
+  //   left: 50%;
+  //   margin-left: -10px;
+  //   top: -10px;
 
-    /* the arrow */
-    border: 10px solid #000;
-    border-color: black transparent transparent transparent;
+  //   /* the arrow */
+  //   border: 10px solid #000;
+  //   border-color: black transparent transparent transparent;
 
-    opacity: 0;
-    transition: 0.3s opacity;
-  }
+  //   opacity: 0;
+  //   transition: 0.3s opacity;
+  // }
 
-  &:hover:before,
-  &:hover:after {
-    opacity: 1;
-  }
+  // &:hover:before,
+  // &:hover:after {
+  //   opacity: 1;
+  // }
 }

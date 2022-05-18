@@ -83,7 +83,7 @@ export default function Home({ posts }) {
           </p>
           &nbsp;
           <h2>Tech</h2>
-          <div className="tech-logos" style={{ position: "relative" }}>
+          <div className="tech-logos">
             <TechIcon
               Icon={DiReact}
               title="React"
