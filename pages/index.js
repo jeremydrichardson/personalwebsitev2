@@ -19,7 +19,7 @@ import {
   IoLogoNodejs,
 } from "react-icons/io5";
 import { FaAws, FaGitAlt } from "react-icons/fa";
-import { SiSwagger } from "react-icons/si";
+import { SiSwagger, SiJest } from "react-icons/si";
 import TechIcon from "../components/TechIcon";
 
 export default function Home({ posts }) {
@@ -112,7 +112,11 @@ export default function Home({ posts }) {
               of iterations (remember floats and clearfix?). I'm mostly using CSS within a framework of somekind these
               days but understanding the roots and CSS foundations allow me to be effective with them."
             />
-            <TechIcon Icon={DiSass} title="Sass" tooltip="" />
+            <TechIcon
+              Icon={SiJest}
+              title="Jest"
+              tooltip="Testing with Jest and React Testing Library is one of those guilty pleasures I have. Seeing those green PASS indicators just gives me warm fuzzies."
+            />
             <TechIcon
               Icon={IoLogoNodejs}
               title="NodeJS"
