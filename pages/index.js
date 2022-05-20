@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import fs from "fs";
 import Post from "../components/Post";
@@ -61,14 +62,12 @@ export default function Home({ posts }) {
             <a href="https://www.thought-dev.com">Thought Development</a> is to
             lead a team as we transform ON-Air Pro&mdash;a legacy FileMaker
             application for the broadcast industry&mdash;into a modern web
-            application using node, react, and AWS.{" "}
-          </p>
-          <p>
-            We have to support the existing customer base who continues to use
-            the legacy product along-side the new product, which means
-            we&apos;re using the FileMaker data API to retrieve data, transform
-            it, and serve it to the client application through our newly defined
-            REST API.
+            application using <a href="https://nodejs.org/en/">Node</a>,{" "}
+            <a href="https://reactjs.org/">React</a>, and{" "}
+            <a href="https://aws.amazon.com/">AWS</a>.{" "}
+            <em>
+              <Link href="/experience">Learn more...</Link>
+            </em>
           </p>
           <p>
             My past had led me through a number of creative fields including
