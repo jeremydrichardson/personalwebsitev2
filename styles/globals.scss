@@ -16,9 +16,9 @@
 
 $maximum-width: 660px;
 
-:root {
-  --maximum-width: $maximum-width;
-}
+// :root {
+//   --maximum-width: $maximum-width;
+// }
 
 body {
   font-family: "Inter var", system-ui, -apple-system, BlinkMacSystemFont,
@@ -79,7 +79,7 @@ time {
 }
 
 .container {
-  max-width: var(--maximum-width);
+  max-width: $maximum-width;
   padding: 0 2rem;
 }
 
@@ -118,9 +118,9 @@ time {
 .hero-container {
   display: flex;
   align-items: center;
-  max-width: var(--maximum-width);
-  flex-wrap: wrap;
-  // flex-direction: column-reverse;
+  max-width: $maximum-width;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
 }
 .hero-image {
   transform: skew(0, 0);
@@ -131,10 +131,17 @@ time {
     transform: rotate3d(-1, 1, 0.3, 30deg);
   }
 }
+.hero-content {
+  text-align: center;
+}
 @media screen and (min-width: $maximum-width) {
+  .hero-container {
+    justify-content: space-between;
+  }
   .hero-content {
     // flex-basis: 60%;
     max-width: 60%;
+    text-align: left;
   }
 }
 
@@ -145,7 +152,7 @@ time {
 }
 
 .main {
-  max-width: 660px;
+  max-width: $maximum-width;
   margin: 0 auto;
 }
 
