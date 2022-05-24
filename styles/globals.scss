@@ -282,3 +282,9 @@ time {
 .vertical-timeline-element-content details {
   padding: 0.2rem 0;
 }
+.name {
+  background-image: linear-gradient(176deg, #0700b8 0%, #00ff88 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}

@@ -36,7 +36,9 @@ export default function Home({ posts }) {
         <div className="hero">
           <div className="hero-container">
             <div className="hero-content">
-              <h1 className="title">Hi, I&apos;m Jeremy Richardson</h1>
+              <h1 className="title">
+                Hi, I&apos;m <span className="name">Jeremy Richardson</span>
+              </h1>
               <p>
                 I&apos;m a full stack developer building software solutions that
                 increase user productivity
