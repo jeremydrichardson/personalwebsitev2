@@ -12,7 +12,7 @@ import rehypePrism from "rehype-prism-plus";
 import remarkGfm from "remark-gfm";
 import imageSize from "rehype-img-size";
 import { ErrorBoundary } from "../components/ErrorBoundary";
-import { DiReact, DiSass } from "react-icons/di";
+import { DiReact } from "react-icons/di";
 import {
   IoLogoJavascript,
   IoLogoHtml5,
@@ -57,29 +57,32 @@ export default function Home({ posts }) {
         </div>
         <main className="main">
           <h2>About</h2>
-          <p>
-            My current mission with{" "}
-            <a href="https://www.thought-dev.com">Thought Development</a> is to
-            lead a team as we transform ON-Air Pro&mdash;a legacy FileMaker
-            application for the broadcast industry&mdash;into a modern web
-            application using <a href="https://nodejs.org/en/">Node</a>,{" "}
-            <a href="https://reactjs.org/">React</a>, and{" "}
-            <a href="https://aws.amazon.com/">AWS</a>.{" "}
-            <em>
-              <Link href="/experience">Learn more...</Link>
-            </em>
-          </p>
-          <p>
-            My past had led me through a number of creative fields including
-            film and television production, audio production as both a musician
-            and engineer, as well as live theatrical sound and lighting.
-          </p>
-          <p>
-            Each of those ventures always led me back to the web where the
-            innovation in technology attracted me time and time again. I love
-            building tools that people love to use, especially in the creative
-            and entertainment realms.
-          </p>
+          <div className="prose">
+            <p>
+              My current mission with{" "}
+              <a href="https://www.thought-dev.com">Thought Development</a> is
+              to lead a team as we transform ON-Air Pro&mdash;a legacy FileMaker
+              application for the broadcast industry&mdash;into a modern web
+              application using <a href="https://nodejs.org/en/">Node</a>,{" "}
+              <a href="https://reactjs.org/">React</a>, and{" "}
+              <a href="https://aws.amazon.com/">AWS</a>.{" "}
+              <em>
+                <Link href="/experience">Learn more...</Link>
+              </em>
+            </p>
+            <p>
+              My past had led me through a number of creative fields including
+              film and television production, audio production as both a
+              musician and engineer, as well as live theatrical sound and
+              lighting.
+            </p>
+            <p>
+              Each of those ventures always led me back to the web where the
+              innovation in technology attracted me time and time again. I love
+              building tools that people love to use, especially in the creative
+              and entertainment realms.
+            </p>
+          </div>
           &nbsp;
           <h2>Tech</h2>
           <div className="tech-logos">
