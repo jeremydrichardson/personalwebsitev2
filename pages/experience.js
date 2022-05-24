@@ -7,6 +7,7 @@ import "react-vertical-timeline-component/style.min.css";
 import { DiReact } from "react-icons/di";
 import { Tdc } from "../components/experience/Tdc";
 import { Su } from "../components/experience/Su";
+import { FaBriefcase } from "react-icons/fa";
 
 export default function Experience() {
   return (
@@ -21,7 +22,7 @@ export default function Experience() {
           contentArrowStyle={{ borderRight: "7px solid  #999" }}
           date="2020 - present"
           iconStyle={{ background: "#444", color: "#fff" }}
-          icon={<DiReact />}
+          icon={<FaBriefcase />}
         >
           <Tdc />
         </VerticalTimelineElement>
@@ -31,7 +32,7 @@ export default function Experience() {
           contentArrowStyle={{ borderRight: "7px solid  #999" }}
           date="2020 - present"
           iconStyle={{ background: "#444", color: "#fff" }}
-          icon={<DiReact />}
+          icon={<FaBriefcase />}
         >
           <Su />
         </VerticalTimelineElement>
