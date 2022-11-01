@@ -85,9 +85,9 @@ Here is an example I have used that answers the example quote above:
 
 I’m giving the evidence of how my experience fulfills exactly what they are looking for.
 
-**Closing sentence**
+#### Closing sentence
 
-I close by saying that I think I would be an asset to their team and would love a chance to show them why.
+I close the cover letter by saying that I think I would be an asset to their team and would love a chance to show them why.
 
 ## Tracking the status of your search
 
@@ -99,7 +99,7 @@ You can use anything to track your progress, but I found Notion to be an asset i
 
 I also have a kanban board view for the job list so that I can see the status of each with the classic kanban style columns. The further to the right, the closer I am to getting an offer.
 
-**Job Postings table**
+#### Job Postings table
 
 I used the following fields but this is just to get your started. Add whatever information you want to track.
 
@@ -121,14 +121,14 @@ I used the following fields but this is just to get your started. Add whatever i
 - 3rd interview date
 - 4th interview date
 
-**Job Companies**
+#### Job Companies
 
 - Name
 - Website - I usually link to the careers page
 - Contact name - usually recruiter or HR
 - Address - applicable if you’re looking at local on-premises work
 
-I’m sure there is more you could track on the company. I try not to complicate it too much for no reason. Most info on a company I can easily and quickly find from their website.
+I’m sure there is more you could track on the company. I try not to complicate it too much for no reason. Most info on a company I can easily and quickly find from their website or a Google search.
 
 ## Conclusion
 
@@ -141,3 +141,5 @@ I don’t know that this is the perfect formula, but it’s the one I have used 
 It sucks to be out of work and it’s usually not a quick process to get hired. Depending on where you live there may be financial help to get you by.
 
 Find out the options and requirements in your area. Many times it is linked to your job search so it is best to find out early so you can modify your system to take any requirements into account.
+
+For instance, in Iowa you are required to apply to at least 3 jobs each week and log them in their system. I modified my system to track all the information they were looking for to qualify for unemployment.
