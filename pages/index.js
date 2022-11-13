@@ -41,8 +41,8 @@ export default function Home({ posts }) {
                 Hi, I&apos;m <span className="name">Jeremy Richardson</span>
               </h1>
               <p className="prose">
-                I&apos;m a full stack developer building software solutions that
-                increase user productivity
+                I&apos;m a full stack developer building software solutions to
+                make your life better
               </p>
             </div>
             <div className="hero-image hero-section">
