@@ -5,7 +5,7 @@ export function Tdc() {
         Thought Development&nbsp;&nbsp;&nbsp;
         <span className="position-title">Product Development Manager</span>
       </h2>
-      <p className="position-date-range">2020 - Present</p>
+      <p className="position-date-range">2020 - 2022</p>
 
       <h3>Custom API for flagship product</h3>
       <ul className="project-summary">
