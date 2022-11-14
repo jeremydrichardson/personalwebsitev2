@@ -31,10 +31,10 @@ export default function PostPage({
     <ErrorBoundary>
       <Layout>
         <Head>
-          <title>Jeremy&apos;s blog - {title}</title>
+          <title>{`Jeremy&apos;s blog - ${title}`}</title>
         </Head>
         <div className="container prose prose-sm md:prose">
-          <Link href="/">
+          <Link href="/" legacyBehavior>
             <a className="btn btn-back">Go Back</a>
           </Link>
           <div className="card card-page">
