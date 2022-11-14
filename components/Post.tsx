@@ -3,11 +3,23 @@ import { format, parseISO } from "date-fns";
 import { MDXRemote } from "next-mdx-remote";
 import mdxComponents from "./mdxComponents";
 
-export default function Post({ post }) {
+interface PostData {
+  content: string;
+  createDate: string;
+  modifiedDate: string;
+  slug: string;
+  frontmatter: any;
+}
+
+interface PostProps {
+  post: PostData;
+}
+
+export default function Post({ post }: PostProps) {
   return (
     <div className="post-item">
       <h3>
-        <Link href={`/blog/${post.slug}`}>
+        <Link href={`/blog/${post.slug}`} legacyBehavior>
           <a className="post-item-title">{post.frontmatter.title}</a>
         </Link>
       </h3>
