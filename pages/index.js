@@ -6,7 +6,6 @@ import fs from "fs";
 import Post from "../components/Post";
 import { getPostBySlug } from "../lib/api";
 import { differenceInDays, parseISO } from "date-fns";
-import profilePic from "../public/img/jeremy-profile@2x.png";
 import { serialize } from "next-mdx-remote/serialize";
 import rehypePrism from "rehype-prism-plus";
 import remarkGfm from "remark-gfm";
@@ -23,6 +22,7 @@ import { FaAws, FaGitAlt } from "react-icons/fa";
 import { SiSwagger, SiJest } from "react-icons/si";
 import TechIcon from "../components/TechIcon";
 import { SiteNav } from "../components/SiteNav";
+import { Hero } from "../components/Hero";
 
 export default function Home({ posts }) {
   return (
@@ -36,30 +36,8 @@ export default function Home({ posts }) {
         <SiteNav />
       </div>
       <div className={styles.container}>
-        <div className="hero">
-          <div className="hero-container">
-            <div className="hero-content">
-              <h1 className="title">
-                Hi, I&apos;m <span className="name">Jeremy Richardson</span>
-              </h1>
-              <p className="prose">
-                I&apos;m a full stack developer building software solutions to
-                make your life better
-              </p>
-            </div>
-            <div className="hero-image hero-section">
-              <div className="profile-picture-border">
-                <Image
-                  src={profilePic}
-                  width="200"
-                  height="200"
-                  className="profile-picture"
-                  alt="Jeremy Richardson"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+        <Hero />
+
         <main className="main">
           <h2>About</h2>
           <div className="prose">
