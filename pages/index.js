@@ -65,12 +65,9 @@ export default function Home({ posts }) {
           <div className="prose">
             <p>
               My current mission with{" "}
-              <a href="https://www.thought-dev.com">Thought Development</a> is
-              to lead a team as we transform ON-Air Pro&mdash;a legacy FileMaker
-              application for the broadcast industry&mdash;into a modern web
-              application using <a href="https://nodejs.org/en/">Node</a>,{" "}
-              <a href="https://reactjs.org/">React</a>, and{" "}
-              <a href="https://aws.amazon.com/">AWS</a>.{" "}
+              <a href="https://www.mintmobile.com">Mint Mobile</a> is to lead a
+              team as we build a modern a UI component library to support the
+              ecommerce division using <a href="https://reactjs.org/">React</a>.{" "}
               <em>
                 <Link href="/experience">Learn more...</Link>
               </em>
