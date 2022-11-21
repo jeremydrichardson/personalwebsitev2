@@ -1,0 +1,9 @@
+.siteNavigation {
+  text-transform: uppercase;
+  /* background-color: #fff; */
+}
+
+.siteNavigation ul {
+  margin: 0;
+  padding: 0;
+}
