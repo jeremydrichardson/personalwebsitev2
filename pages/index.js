@@ -9,6 +9,7 @@ import rehypePrism from "rehype-prism-plus";
 import remarkGfm from "remark-gfm";
 import imageSize from "rehype-img-size";
 import { ErrorBoundary } from "../components/ErrorBoundary";
+import { isBefore } from "date-fns";
 
 import { SiteNav } from "../components/SiteNav";
 import { Hero } from "../components/Hero";
@@ -16,6 +17,12 @@ import { About } from "../components/About";
 import { Tech } from "../components/Tech";
 
 export default function Home({ posts }) {
+  const publishedPosts = posts.filter(
+    (post) =>
+      isBefore(new Date(post.createDate), new Date()) ||
+      new Date(post.createDate) === new Date()
+  );
+
   return (
     <ErrorBoundary>
       <Head>
@@ -36,7 +43,7 @@ export default function Home({ posts }) {
           &nbsp;
           <h2 id="posts">Posts</h2>
           <article className="container prose prose-sm md:prose">
-            {posts.map((post) => (
+            {publishedPosts.map((post) => (
               <Post key={post.slug} post={post} />
             ))}
           </article>
