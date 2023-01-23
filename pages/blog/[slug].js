@@ -59,7 +59,7 @@ export default function PostPage({
         <DiscussionEmbed
           shortname="jeremyrichardson"
           config={{
-            url: `http://localhost:3000/blog/${slug}`,
+            url: `https://jeremyrichardson.dev/blog/${slug}`,
             identifier: slug,
             title: title,
           }}
