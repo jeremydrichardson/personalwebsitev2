@@ -1,14 +1,20 @@
 {
   "name": "personalwebsitev2",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typecheck": "tsc"
   },
   "dependencies": {
+    "@mdx-js/loader": "^2.2.1",
+    "@mdx-js/react": "^2.2.1",
+    "@next/mdx": "^13.0.7",
     "date-fns": "^2.29.3",
+    "disqus-react": "^1.1.5",
     "gitlog": "^4.0.4",
     "gray-matter": "^4.0.3",
     "next": "^13.0.3",
@@ -21,6 +27,7 @@
     "rehype-prism-plus": "^1.5.0",
     "rehype-raw": "^6.1.1",
     "rehype-stringify": "^9.0.3",
+    "remark-frontmatter": "^4.0.1",
     "remark-gfm": "^3.0.1",
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",

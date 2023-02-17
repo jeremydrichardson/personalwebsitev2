@@ -12,6 +12,7 @@ import remarkGfm from "remark-gfm";
 import imageSize from "rehype-img-size";
 import mdxComponents from "../../components/mdxComponents";
 import { ErrorBoundary } from "../../components/ErrorBoundary";
+import { DiscussionEmbed } from "disqus-react";
 
 export default function PostPage({
   frontmatter: { title, tags },
@@ -55,6 +56,14 @@ export default function PostPage({
             </div>
           </div>
         </div>
+        <DiscussionEmbed
+          shortname="jeremyrichardson"
+          config={{
+            url: `https://jeremyrichardson.dev/blog/${slug}`,
+            identifier: slug,
+            title: title,
+          }}
+        />
       </Layout>
     </ErrorBoundary>
   );
