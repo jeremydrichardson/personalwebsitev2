@@ -10,18 +10,28 @@ import remarkGfm from "remark-gfm";
 import imageSize from "rehype-img-size";
 import { ErrorBoundary } from "../components/ErrorBoundary";
 import { isBefore } from "date-fns";
+import { getPosts } from "../lib/wordpress";
 
 import { SiteNav } from "../components/SiteNav";
 import { Hero } from "../components/Hero";
 import { About } from "../components/About";
 import { Tech } from "../components/Tech";
+import { WP_Post, WP_REST_API_Post, WP_REST_API_Posts } from "wp-types";
 
-export default function Home({ posts }) {
-  const publishedPosts = posts.filter(
-    (post) =>
-      isBefore(new Date(post.createDate), new Date()) ||
-      new Date(post.createDate) === new Date()
-  );
+export default function Home({
+  posts,
+  wpPosts,
+}: {
+  posts: any;
+  wpPosts: WP_REST_API_Posts;
+}) {
+  // const publishedPosts = posts.filter(
+  //   (post:any) =>
+  //     isBefore(new Date(post.createDate), new Date()) ||
+  //     new Date(post.createDate) === new Date()
+  // );
+  const publishedPosts = wpPosts;
+  console.log(Object.keys(publishedPosts));
 
   return (
     <ErrorBoundary>
@@ -44,7 +54,7 @@ export default function Home({ posts }) {
           <h2 id="posts">Posts</h2>
           <article className="container prose prose-sm md:prose">
             {publishedPosts.map((post) => (
-              <Post key={post.slug} post={post} />
+              <Post key={post.id} post={post} />
             ))}
           </article>
         </main>
@@ -56,6 +66,9 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps() {
+  const wpPosts = await getPosts();
+  console.log(wpPosts);
+
   const postFiles = fs.readdirSync("posts");
 
   const posts = await Promise.all(
@@ -71,7 +84,6 @@ export async function getStaticProps() {
       });
 
       return {
-        slug,
         ...post,
         frontmatter: { ...post.frontmatter, description: mdxSource },
       };
@@ -96,6 +108,7 @@ export async function getStaticProps() {
 
   return {
     props: {
+      wpPosts,
       posts,
     },
   };
