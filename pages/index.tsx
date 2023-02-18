@@ -25,13 +25,12 @@ export default function Home({
   posts: any;
   wpPosts: WP_REST_API_Posts;
 }) {
-  // const publishedPosts = posts.filter(
-  //   (post:any) =>
-  //     isBefore(new Date(post.createDate), new Date()) ||
-  //     new Date(post.createDate) === new Date()
-  // );
-  const publishedPosts = wpPosts;
-  console.log(Object.keys(publishedPosts));
+  const publishedPosts = posts.filter(
+    (post: any) =>
+      isBefore(new Date(post.createDate), new Date()) ||
+      new Date(post.createDate) === new Date()
+  );
+  const wpPublishedPosts = wpPosts;
 
   return (
     <ErrorBoundary>
@@ -67,7 +66,6 @@ export default function Home({
 
 export async function getStaticProps() {
   const wpPosts = await getPosts();
-  console.log(wpPosts);
 
   const postFiles = fs.readdirSync("posts");
 
