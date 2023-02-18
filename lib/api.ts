@@ -4,32 +4,35 @@ import matter from "gray-matter";
 import gitlog from "gitlog";
 import { parseJSON } from "date-fns";
 
-export function getPostBySlug(slug) {
+export function getPostBySlug(slug: string) {
   const file = fs
     .readdirSync("posts")
-    .filter((filename) => filename.includes(slug))[0];
+    .find((filename) => filename.includes(slug));
+
+  if (!file) throw new Error("The file does not exist.");
 
   const fileLocation = path.join("posts", file);
 
   const fileContent = fs.readFileSync(fileLocation, "utf-8");
-  const gitCommit = gitlog.default({
+  const gitCommit = gitlog({
     repo: ".",
     number: 1,
     file: fileLocation,
   });
 
   const { data, content } = matter(fileContent);
-  const { createDate, ...frontmatter } = data;
+
+  const createDateISO = data.createDate || new Date().toISOString;
 
   const modifiedDateISO = gitCommit.length
     ? parseJSON(gitCommit[0].authorDate).toISOString()
-    : null;
+    : createDateISO;
 
   return {
-    frontmatter,
+    frontmatter: data,
     slug,
     content,
-    createDate: createDate || null,
+    createDate: createDateISO,
     modifiedDate: modifiedDateISO,
   };
 }

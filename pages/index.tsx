@@ -16,15 +16,24 @@ import { SiteNav } from "../components/SiteNav";
 import { Hero } from "../components/Hero";
 import { About } from "../components/About";
 import { Tech } from "../components/Tech";
-import { WP_Post, WP_REST_API_Post, WP_REST_API_Posts } from "wp-types";
+import { WP_REST_API_Posts } from "wp-types";
 
-export default function Home({
-  posts,
-  wpPosts,
-}: {
-  posts: any;
+interface HomeProps {
+  posts: Post[];
   wpPosts: WP_REST_API_Posts;
-}) {
+}
+
+interface Post {
+  frontmatter: {
+    [key: string]: any;
+  };
+  slug: string;
+  content: string;
+  createDate: any;
+  modifiedDate: any;
+}
+
+export default function Home({ posts, wpPosts }: HomeProps) {
   const publishedPosts = posts.filter(
     (post: any) =>
       isBefore(new Date(post.createDate), new Date()) ||
@@ -53,7 +62,7 @@ export default function Home({
           <h2 id="posts">Posts</h2>
           <article className="container prose prose-sm md:prose">
             {publishedPosts.map((post) => (
-              <Post key={post.id} post={post} />
+              <Post key={post.slug} post={post} />
             ))}
           </article>
         </main>
@@ -83,7 +92,7 @@ export async function getStaticProps() {
 
       return {
         ...post,
-        frontmatter: { ...post.frontmatter, description: mdxSource },
+        mdxSource,
       };
     })
   ).then((posts) =>
