@@ -18,7 +18,7 @@ export default function Post({ post }: PostProps) {
   return (
     <div className="post-item">
       <h3>
-        <Link href={`/blog/${post.slug}`} legacyBehavior>
+        <Link href={`/blog2/${post.slug}`} legacyBehavior>
           <a
             className="post-item-title"
             dangerouslySetInnerHTML={{ __html: post.title.rendered }}

@@ -8,9 +8,19 @@ import { getPosts, getPost } from "../../lib/wordpress";
 import { WP_REST_API_Post } from "wp-types";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
+import { parse } from "@wordpress/block-serialization-default-parser";
+import htmlParse from "html-react-parser";
 
 export default function PostPage(props: { post: WP_REST_API_Post }) {
-  const { slug, content, modified, date, title, tags } = props.post;
+  const { slug, content, modified, date, title, tags, parsedContent } =
+    props.post;
+  const blocks = content.raw !== undefined ? parse(content.raw) : [];
+
+  if (typeof window !== "undefined" && content.raw !== undefined) {
+    console.log("window is not undefined");
+    console.log("content", parse(content.raw));
+  }
+
   const createDateFormatted = date
     ? format(parseISO(date), "MMM d, yyyy")
     : null;
@@ -44,10 +54,8 @@ export default function PostPage(props: { post: WP_REST_API_Post }) {
               </div>
             )}
             {tags && <div className="post-tags">Tags: {tags.join(",")}</div>}
-            <div
-              className="post-body"
-              dangerouslySetInnerHTML={{ __html: content.rendered }}
-            />
+            {console.log(content.rendered)}
+            <div>{htmlParse(content.rendered.replaceAll("\n", ""))}</div>
           </div>
         </div>
         <DiscussionEmbed

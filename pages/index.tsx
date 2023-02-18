@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import fs from "fs";
 import Post from "../components/Post";
+import WpPost from "../components/WpPost";
 import { getPostBySlug } from "../lib/api";
 import { differenceInDays, parseISO } from "date-fns";
 import { serialize } from "next-mdx-remote/serialize";
@@ -61,6 +62,9 @@ export default function Home({ posts, wpPosts }: HomeProps) {
           &nbsp;
           <h2 id="posts">Posts</h2>
           <article className="container prose prose-sm md:prose">
+            {wpPosts.map((post) => (
+              <WpPost key={post.slug} post={post} />
+            ))}
             {publishedPosts.map((post) => (
               <Post key={post.slug} post={post} />
             ))}

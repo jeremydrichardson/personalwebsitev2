@@ -14,8 +14,21 @@ export async function getPosts(): Promise<WP_REST_API_Posts> {
 }
 
 export async function getPost(slug: string): Promise<WP_REST_API_Post> {
+  const postsRes = await fetch(`${BASE_URL}/posts/255?context=edit`, {
+    headers: {
+      Authorization: `BEARER ${process.env.WP_ACCESS_TOKEN}`,
+    },
+  }).then((res) => res.json());
+
   try {
-    const postsRes = await fetch(`${BASE_URL}/posts/?_embed&slug=${slug}`);
+    const postsRes = await fetch(
+      `${BASE_URL}/posts/?_embed&context=edit&slug=${slug}`,
+      {
+        headers: {
+          Authorization: `BEARER ${process.env.WP_ACCESS_TOKEN}`,
+        },
+      }
+    );
     const posts: WP_REST_API_Posts = await postsRes.json();
 
     if (posts.length !== 1)

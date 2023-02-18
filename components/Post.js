@@ -14,7 +14,7 @@ export default function Post({ post }) {
       <time className="post-item-date">
         {format(parseISO(post.createDate), "MMM d, yyyy")}
       </time>
-      {/* <MDXRemote {...post.frontmatter} components={mdxComponents} /> */}
+      <MDXRemote {...post.mdxSource} components={mdxComponents} />
     </div>
   );
 }
