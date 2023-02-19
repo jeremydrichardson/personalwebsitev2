@@ -31,7 +31,8 @@
     "remark-gfm": "^3.0.1",
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
-    "unified": "^10.1.2"
+    "unified": "^10.1.2",
+    "wp-block-renderer": "file:../wp-block-renderer"
   },
   "devDependencies": {
     "@types/node": "18.11.9",
