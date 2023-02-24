@@ -41,7 +41,7 @@ Don’t trust VS code for your errors when debugging. I found it to be misleadin
 
 ### Transpile modules
 
-For some reason when using the exports field of package.json for the component library, when trying to build with NextJS it acts like it can’t understand TypeScript. This normally would happen if you don’t have `transpilePackages: ["@kaena1/mm-ui-components"]` set in next.config.js, but even with transpilePackages set it still doesn’t seem to work.
+For some reason when using the exports field of package.json for the component library, when trying to build with NextJS it acts like it can’t understand TypeScript. This normally would happen if you don’t have `transpilePackages: ["@ourorg/componentlibrary"]` set in next.config.js, but even with transpilePackages set it still doesn’t seem to work.
 
 The native transpileModules that was introduced in NextJS 13.1 doesn’t seem as fully featured as the previous module that was used to do this - [https://github.com/martpie/next-transpile-modules/tree/the-end](https://github.com/martpie/next-transpile-modules/tree/the-end) . I actually found the documentation here more helpful as well as the NextJS documentation is quite thin.
 
