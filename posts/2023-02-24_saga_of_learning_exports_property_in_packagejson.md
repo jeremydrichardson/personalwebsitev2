@@ -23,25 +23,25 @@ The exports property in package.json is supposed to allow you to define aliases 
 
 ### Module Resolution and TypeScript
 
-The exports property in package.json is part of the esm specification. In order to make it work with TypeScript you need to specify moduleResolution: node16 or nodenext in tsconfig. This has other repercussions that can affect how modules are processed.
+The exports property in package.json is part of the esm specification. In order to make it work with TypeScript you need to specify `moduleResolution: node16` or `moduleResolution: nodenext` (didn't figure out the difference between the two yet...) in tsconfig. This has other repercussions that can affect how modules are processed.
 
 ### NextJS and the component library
 
-When you set moduleResolution: node16 in the tsconfig it allows you to import the component library when it is using the exports field. However, it throws an error that the component library is an es module and the Next environment is running in CommonJS.
+When you set `moduleResolution: node16` in the tsconfig it allows you to import the component library when it is using the exports field. However, it throws an error that the component library is an es module and the Next environment is running in CommonJS.
 
-If you set the NextJS project as an es module by specifying type: module in package.json it will allow the component library to be imported properly but then for some reason all of the NextJS native imports start failing.
+If you set the NextJS project as an es module by specifying `type: module` in package.json it will allow the component library to be imported properly but then for some reason all of the NextJS native imports start failing.
 
-It should be noted it is something to do with the combination of type: module and moduleResolution:node16 as either one of those settings set by themselves works with a plain NextJS project. If you do set type: module you will need to rename next.config.js to next.config.cjs as it can only exist as a CommonJS module.
+It should be noted it is something to do with the combination of `type: module` and `moduleResolution:node16` as either one of those settings set by themselves works with a plain NextJS project. If you do set `type: module` you will need to rename `next.config.js` to `next.config.cjs` as it can only exist as a CommonJS module.
 
 It seems as though NextJS is moving towards being built in ESM natively but that is most likely some time off. Hopefully that will clear up the issues and we will be able to go completely ESM. But that is not possible currently.
 
 ### How to Test
 
-Don’t trust VS code for your errors when debugging. I found it to be misleading and often just plain wrong. The only effective way to know if your code is working while playing with module resolution is to use npm run build for NextJS projects.
+Don’t trust VS code for your errors when debugging. I found it to be misleading and often just plain wrong. The only effective way to know if your code is working while playing with module resolution is to use `npm run build` for NextJS projects.
 
 ### Transpile modules
 
-For some reason when using the exports field of package.json for the component library, when trying to build with NextJS it acts like it can’t understand TypeScript. This normally would happen if you don’t have transpilePackages: ["@kaena1/mm-ui-components"] set in next.config.js, but even with transpilePackages set it still doesn’t seem to work.
+For some reason when using the exports field of package.json for the component library, when trying to build with NextJS it acts like it can’t understand TypeScript. This normally would happen if you don’t have `transpilePackages: ["@kaena1/mm-ui-components"]` set in next.config.js, but even with transpilePackages set it still doesn’t seem to work.
 
 The native transpileModules that was introduced in NextJS 13.1 doesn’t seem as fully featured as the previous module that was used to do this - [https://github.com/martpie/next-transpile-modules/tree/the-end](https://github.com/martpie/next-transpile-modules/tree/the-end) . I actually found the documentation here more helpful as well as the NextJS documentation is quite thin.
 
@@ -61,14 +61,14 @@ I ended up choosing the extensionless option for our use case. It muddies up the
 
 What I wanted to end up with is imports that follow the pattern:
 
-```
-import { Button } from "@ourorg/componentlibrary/components"
-import { icons, theme } from "@ourorg/componentlibrary/theme1"
+```javascript
+import { Button } from "@ourorg/componentlibrary/components";
+import { icons, theme } from "@ourorg/componentlibrary/theme1";
 ```
 
-We can accomplish this by creating ts files named with the subpath we’re looking for. In this case we would have two files in the root of our component library called components.ts and theme1.ts. Those files will just be barrel files with export statements that pull in the appropriate modules we need.
+We can accomplish this by creating ts files named with the subpath we’re looking for. In this case we would have two files in the root of our component library called `components.ts` and `theme1.ts`. Those files will just be barrel files with export statements that pull in the appropriate modules we need.
 
-Make sure in the package.json of your component library that you either don’t specify the files property or set it to "files": "[*]" otherwise the source files you need will not be there.
+Make sure in the package.json of your component library that you either don’t specify the files property or set it to `"files": "[*]"` otherwise the source files you need will not be there.
 
 ## Conclusion
 
