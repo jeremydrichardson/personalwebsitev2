@@ -12,27 +12,22 @@ import {
   parse,
   ParsedBlock,
 } from "@wordpress/block-serialization-default-parser";
-import { BlockRenderer } from "../../lib/wp-block-renderer";
+import { BlockRenderer, GutenbergBlock } from "../../lib/wp-block-renderer";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import htmlParse from "html-react-parser";
 import { Interweave, Node } from "interweave";
 import { polyfill } from "interweave-ssr";
 import { InnerBlocks } from "../../lib/wp-block-renderer/types";
+import { WpRenderBlock } from "../../components/WpRenderBlock";
 
 polyfill();
 
-function transform(node: HTMLElement, children: Node[]): React.ReactNode {
-  // return <h1>I transform</h1>;
-  if (node.tagName === "pre") {
-    return <code>{children}</code>;
-  }
-}
-
-const TestComponent = (props: any) => {
-  return (
-    <Interweave noWrap={true} content={props.html} transform={transform} />
-  );
-};
+// function transform(node: HTMLElement, children: Node[]): React.ReactNode {
+//   // return <h1>I transform</h1>;
+//   if (node.tagName === "pre") {
+//     return <code>{children}</code>;
+//   }
+// }
 
 const renderBlock = (block: ParsedBlock) => {
   if (!block.innerBlocks) return block.innerHTML;
@@ -107,15 +102,18 @@ export default function PostPage(props: { post: WP_REST_API_Post }) {
               </div>
             )}
             {tags && <div className="post-tags">Tags: {tags.join(",")}</div>}
-            {content.raw && (
+            {blocks.map((block, index) => {
+              return <WpRenderBlock key={index} block={block} />;
+            })}
+            {/* {content.raw && (
               <BlockRenderer
                 innerBlocks={innerBlocks}
                 blockMap={{
                   fragment: ({ children }) => <>{children}</>,
-                  "syntaxhighlighter/code": TestComponent,
+                  "core/code": Code,
                 }}
               />
-            )}
+            )} */}
           </div>
         </div>
         <DiscussionEmbed
