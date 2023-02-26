@@ -1,34 +1,8 @@
 import { ParsedBlock } from "@wordpress/block-serialization-default-parser";
-import { Markup, MarkupProps } from "interweave";
 import Highlight, { defaultProps, Language } from "prism-react-renderer";
-
-interface WpRenderBlockProps {
-  block: ParsedBlock;
-  markupProps: MarkupProps;
-}
-
-export const WpRenderBlock = ({ block, markupProps }: WpRenderBlockProps) => {
-  if (block.blockName === "core/list") {
-    const listItems = block.innerBlocks.map((innerBlock) => {
-      return innerBlock.innerHTML;
-    });
-
-    return <Markup noWrap={true} content={`<ul>${listItems.join("")}</ul>`} />;
-  }
-
-  if (block.blockName === "core/code") {
-    return <Code block={block} />;
-  }
-
-  return (
-    <Markup
-      noWrap={true}
-      disableLineBreaks
-      {...markupProps}
-      content={block.innerHTML}
-    />
-  );
-};
+import { Parser, parseDocument } from "htmlparser2";
+import { findOne, removeElement, getElementsByTagName } from "domutils";
+import render from "dom-serializer";
 
 interface CodeProps {
   block: ParsedBlock;
@@ -79,19 +53,24 @@ const isValidLanguage = (lang: string) => {
   return false;
 };
 
-const Code = (props: CodeProps) => {
-  const attributes = props.block.attrs as CodeAttributes;
-  const languageClassname = attributes.className.match(/(?<=lang-[^.]*?)\w+/);
-  console.log("languageClassname", languageClassname);
-  if (languageClassname === null) return <h1>no language set</h1>;
+export const Code = ({ block }: CodeProps) => {
+  const dom = parseDocument(block.innerHTML.trim());
+  const codeElement = getElementsByTagName("code", dom);
+  const rawCode = render(codeElement[0].children);
 
-  if (!isValidLanguage(languageClassname[0]))
-    return <h1>This is not a supported language</h1>;
+  const attributes = block.attrs as CodeAttributes;
+  const languageClassname = attributes.className
+    ? attributes.className.match(/(?<=lang-[^.]*?)\w+/)
+    : "";
+
+  if (languageClassname === null || !isValidLanguage(languageClassname[0])) {
+    return <pre className="code">{rawCode}</pre>;
+  }
 
   return (
     <Highlight
       {...defaultProps}
-      code={props.block.innerHTML}
+      code={rawCode}
       language={languageClassname[0] as Language}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
@@ -107,5 +86,4 @@ const Code = (props: CodeProps) => {
       )}
     </Highlight>
   );
-  // return <Interweave noWrap={true} content={props.html} />;
 };

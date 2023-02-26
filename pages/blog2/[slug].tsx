@@ -12,47 +12,16 @@ import {
   parse,
   ParsedBlock,
 } from "@wordpress/block-serialization-default-parser";
-import { BlockRenderer, GutenbergBlock } from "../../lib/wp-block-renderer";
-import Highlight, { defaultProps } from "prism-react-renderer";
-import htmlParse from "html-react-parser";
-import { Interweave, Node } from "interweave";
 import { polyfill } from "interweave-ssr";
 import { InnerBlocks } from "../../lib/wp-block-renderer/types";
-import { WpRenderBlock } from "../../components/WpRenderBlock";
+import { WpRenderBlock } from "../../components/WpRenderBlock/WpRenderBlock";
 
 polyfill();
-
-// function transform(node: HTMLElement, children: Node[]): React.ReactNode {
-//   // return <h1>I transform</h1>;
-//   if (node.tagName === "pre") {
-//     return <code>{children}</code>;
-//   }
-// }
-
-const renderBlock = (block: ParsedBlock) => {
-  if (!block.innerBlocks) return block.innerHTML;
-
-  let index = 0;
-  return block.innerContent.reduce((previous, current) => {
-    if (current === null) {
-      const innerBlock = renderBlock(block.innerBlocks[index]);
-      previous += innerBlock || "";
-      index++;
-      return previous;
-    }
-
-    previous += current || "";
-    return previous;
-  }, "");
-};
 
 export default function PostPage(props: { post: WP_REST_API_Post }) {
   const { slug, content, modified, date, title, tags, parsedContent } =
     props.post;
   const blocks = content.raw !== undefined ? parse(content.raw) : [];
-
-  console.log("blocks", blocks);
-  // console.log("rendered blocks", renderBlock(blocks[0]));
 
   const parsedBlockToInnerBlocks = (parsedBlock: ParsedBlock): InnerBlocks => {
     return {
@@ -64,10 +33,6 @@ export default function PostPage(props: { post: WP_REST_API_Post }) {
       innerHTML: parsedBlock.innerHTML,
     };
   };
-
-  const innerBlocks: InnerBlocks[] = blocks
-    .map((block): InnerBlocks => parsedBlockToInnerBlocks(block))
-    .filter((block) => block.blockName !== "");
 
   const createDateFormatted = date
     ? format(parseISO(date), "MMM d, yyyy")
@@ -105,15 +70,6 @@ export default function PostPage(props: { post: WP_REST_API_Post }) {
             {blocks.map((block, index) => {
               return <WpRenderBlock key={index} block={block} />;
             })}
-            {/* {content.raw && (
-              <BlockRenderer
-                innerBlocks={innerBlocks}
-                blockMap={{
-                  fragment: ({ children }) => <>{children}</>,
-                  "core/code": Code,
-                }}
-              />
-            )} */}
           </div>
         </div>
         <DiscussionEmbed
