@@ -56,7 +56,7 @@ const isValidLanguage = (lang: string) => {
 export const Code = ({ block }: CodeProps) => {
   const dom = parseDocument(block.innerHTML.trim());
   const codeElement = getElementsByTagName("code", dom);
-  const rawCode = render(codeElement[0].children);
+  const rawCode = render(codeElement[0].children, { encodeEntities: false });
 
   const attributes = block.attrs as CodeAttributes;
   const languageClassname = attributes.className
