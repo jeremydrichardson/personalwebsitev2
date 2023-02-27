@@ -1,4 +1,8 @@
-import { WP_REST_API_Posts, WP_REST_API_Post } from "wp-types";
+import {
+  WP_REST_API_Posts,
+  WP_REST_API_Post,
+  WP_REST_API_Tags,
+} from "wp-types";
 
 const BASE_URL =
   "https://public-api.wordpress.com/wp/v2/sites/jeremyrichardson.home.blog";
@@ -39,5 +43,15 @@ export async function getPost(slug: string): Promise<WP_REST_API_Post> {
     return post;
   } catch (err) {
     throw new Error("There was an error retrieving this post.");
+  }
+}
+
+export async function getTags(): Promise<WP_REST_API_Tags> {
+  try {
+    const tagsRes = await fetch(BASE_URL + "/tags?_embed");
+    const tags: WP_REST_API_Tags = await tagsRes.json();
+    return tags;
+  } catch (err) {
+    throw new Error("There was an error retrieving the list of tags.");
   }
 }

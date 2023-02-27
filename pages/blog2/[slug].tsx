@@ -4,8 +4,8 @@ import Head from "next/head";
 import { format, parseISO } from "date-fns";
 import { ErrorBoundary } from "../../components/ErrorBoundary";
 import { DiscussionEmbed } from "disqus-react";
-import { getPosts, getPost } from "../../lib/wordpress";
-import { WP_REST_API_Post } from "wp-types";
+import { getPosts, getPost, getTags } from "../../lib/wordpress";
+import { WP_REST_API_Post, WP_REST_API_Tags } from "wp-types";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 import {
@@ -18,9 +18,11 @@ import { WpRenderBlock } from "../../components/WpRenderBlock/WpRenderBlock";
 
 polyfill();
 
-export default function PostPage(props: { post: WP_REST_API_Post }) {
-  const { slug, content, modified, date, title, tags, parsedContent } =
-    props.post;
+export default function PostPage(props: {
+  post: WP_REST_API_Post;
+  allTags: WP_REST_API_Tags;
+}) {
+  const { slug, content, modified, date, title, tags } = props.post;
   const blocks = content.raw !== undefined ? parse(content.raw) : [];
 
   const parsedBlockToInnerBlocks = (parsedBlock: ParsedBlock): InnerBlocks => {
@@ -40,6 +42,8 @@ export default function PostPage(props: { post: WP_REST_API_Post }) {
   const modifiedDateFormatted = modified
     ? format(parseISO(modified), "MMM d, yyyy")
     : null;
+
+  console.log("allTags", props.allTags);
 
   return (
     <ErrorBoundary>
@@ -66,7 +70,15 @@ export default function PostPage(props: { post: WP_REST_API_Post }) {
                 <time dateTime={modified}>{modifiedDateFormatted}</time>
               </div>
             )}
-            {tags && <div className="post-tags">Tags: {tags.join(",")}</div>}
+            {tags && props.allTags && (
+              <div className="post-tags">
+                Tags:{" "}
+                {props.allTags
+                  .filter((allTag) => tags.includes(allTag.id))
+                  .map((allTag) => allTag.name)
+                  .join(", ")}
+              </div>
+            )}
             {blocks.map((block, index) => {
               return <WpRenderBlock key={index} block={block} />;
             })}
@@ -111,10 +123,12 @@ export const getStaticProps: GetStaticProps<
 
   const slug = context.params.slug;
   const post = await getPost(slug);
+  const allTags = await getTags();
 
   return {
     props: {
       post,
+      allTags,
     },
   };
 };
