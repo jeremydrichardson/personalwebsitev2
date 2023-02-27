@@ -65,9 +65,9 @@ export default function Home({ posts, wpPosts }: HomeProps) {
             {wpPosts.map((post) => (
               <WpPost key={post.slug} post={post} />
             ))}
-            {publishedPosts.map((post) => (
+            {/* {publishedPosts.map((post) => (
               <Post key={post.slug} post={post} />
-            ))}
+            ))} */}
           </article>
         </main>
 
