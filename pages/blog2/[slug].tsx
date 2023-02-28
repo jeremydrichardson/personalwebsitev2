@@ -4,7 +4,7 @@ import Head from "next/head";
 import { format, parseISO } from "date-fns";
 import { ErrorBoundary } from "../../components/ErrorBoundary";
 import { DiscussionEmbed } from "disqus-react";
-import { getPosts, getPost, getTags } from "../../lib/wordpress";
+import { getPosts, getPost, getTagsByPost } from "../../lib/wordpress";
 import { WP_REST_API_Post, WP_REST_API_Tags } from "wp-types";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
@@ -20,7 +20,7 @@ polyfill();
 
 export default function PostPage(props: {
   post: WP_REST_API_Post;
-  allTags: WP_REST_API_Tags;
+  postTags: WP_REST_API_Tags;
 }) {
   const { slug, content, modified, date, title, tags } = props.post;
   const blocks = content.raw !== undefined ? parse(content.raw) : [];
@@ -42,8 +42,6 @@ export default function PostPage(props: {
   const modifiedDateFormatted = modified
     ? format(parseISO(modified), "MMM d, yyyy")
     : null;
-
-  console.log("allTags", props.allTags);
 
   return (
     <ErrorBoundary>
@@ -70,13 +68,9 @@ export default function PostPage(props: {
                 <time dateTime={modified}>{modifiedDateFormatted}</time>
               </div>
             )}
-            {tags && props.allTags && (
+            {tags && props.postTags && (
               <div className="post-tags">
-                Tags:{" "}
-                {props.allTags
-                  .filter((allTag) => tags.includes(allTag.id))
-                  .map((allTag) => allTag.name)
-                  .join(", ")}
+                Tags: {props.postTags.map((postTag) => postTag.name).join(", ")}
               </div>
             )}
             {blocks.map((block, index) => {
@@ -123,12 +117,12 @@ export const getStaticProps: GetStaticProps<
 
   const slug = context.params.slug;
   const post = await getPost(slug);
-  const allTags = await getTags();
+  const postTags = await getTagsByPost(post.id);
 
   return {
     props: {
       post,
-      allTags,
+      postTags,
     },
   };
 };

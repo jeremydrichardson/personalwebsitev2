@@ -1,6 +1,7 @@
 import { ParsedBlock } from "@wordpress/block-serialization-default-parser";
 import { Markup, MarkupProps } from "interweave";
 import { Code } from "./Code";
+import { Image } from "./Image";
 
 interface WpRenderBlockProps {
   block: ParsedBlock;
@@ -39,6 +40,10 @@ export const WpRenderBlock = ({ block, markupProps }: WpRenderBlockProps) => {
         ></iframe>
       );
     }
+  }
+
+  if (block.blockName === "core/image") {
+    return <Image block={block} />;
   }
 
   return (
