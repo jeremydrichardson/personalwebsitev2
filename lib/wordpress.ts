@@ -46,9 +46,9 @@ export async function getPost(slug: string): Promise<WP_REST_API_Post> {
   }
 }
 
-export async function getTags(): Promise<WP_REST_API_Tags> {
+export async function getTagsByPost(postId: number): Promise<WP_REST_API_Tags> {
   try {
-    const tagsRes = await fetch(BASE_URL + "/tags?_embed");
+    const tagsRes = await fetch(`${BASE_URL}/tags?_embed&post=${postId}`);
     const tags: WP_REST_API_Tags = await tagsRes.json();
     return tags;
   } catch (err) {
