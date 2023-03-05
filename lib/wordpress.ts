@@ -9,7 +9,7 @@ const BASE_URL =
 
 export async function getPosts(): Promise<WP_REST_API_Posts> {
   try {
-    const postsRes = await fetch(BASE_URL + "/posts?_embed");
+    const postsRes = await fetch(BASE_URL + "/posts?_embed&per_page=99");
     const posts: WP_REST_API_Posts = await postsRes.json();
     return posts;
   } catch (err) {
@@ -18,12 +18,6 @@ export async function getPosts(): Promise<WP_REST_API_Posts> {
 }
 
 export async function getPost(slug: string): Promise<WP_REST_API_Post> {
-  const postsRes = await fetch(`${BASE_URL}/posts/255?context=edit`, {
-    headers: {
-      Authorization: `BEARER ${process.env.WP_ACCESS_TOKEN}`,
-    },
-  }).then((res) => res.json());
-
   try {
     const postsRes = await fetch(
       `${BASE_URL}/posts/?_embed&context=edit&slug=${slug}`,
