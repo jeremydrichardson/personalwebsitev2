@@ -8,10 +8,7 @@ import { getPosts, getPost, getTagsByPost } from "../../lib/wordpress";
 import { WP_REST_API_Post, WP_REST_API_Tags } from "wp-types";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
-import {
-  parse,
-  ParsedBlock,
-} from "@wordpress/block-serialization-default-parser";
+import { parse } from "@wordpress/block-serialization-default-parser";
 import { polyfill } from "interweave-ssr";
 import { WpRenderBlock } from "../../components/WpRenderBlock/WpRenderBlock";
 
@@ -84,7 +81,7 @@ interface Params extends ParsedUrlQuery {
 }
 
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
-  const wpPosts = await getPosts();
+  const wpPosts = await getPosts("publish", 99);
   const paths = wpPosts.map((post) => ({
     params: {
       slug: post.slug,

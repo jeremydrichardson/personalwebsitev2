@@ -7,9 +7,19 @@ import {
 const BASE_URL =
   "https://public-api.wordpress.com/wp/v2/sites/jeremyrichardson.home.blog";
 
-export async function getPosts(): Promise<WP_REST_API_Posts> {
+export async function getPosts(
+  status = "publish",
+  per_page: number
+): Promise<WP_REST_API_Posts> {
   try {
-    const postsRes = await fetch(BASE_URL + "/posts?_embed&per_page=99");
+    const postsRes = await fetch(
+      `${BASE_URL}/posts?_embed&status=${status}&per_page=${per_page}`,
+      {
+        headers: {
+          Authorization: `BEARER ${process.env.WP_ACCESS_TOKEN}`,
+        },
+      }
+    );
     const posts: WP_REST_API_Posts = await postsRes.json();
     return posts;
   } catch (err) {

@@ -1,16 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import fs from "fs";
-import Post from "../components/Post";
 import WpPost from "../components/WpPost";
-import { getPostBySlug } from "../lib/api";
-import { differenceInDays, parseISO } from "date-fns";
-import { serialize } from "next-mdx-remote/serialize";
-import rehypePrism from "rehype-prism-plus";
-import remarkGfm from "remark-gfm";
-import imageSize from "rehype-img-size";
 import { ErrorBoundary } from "../components/ErrorBoundary";
-import { isBefore } from "date-fns";
 import { getPosts } from "../lib/wordpress";
 
 import { SiteNav } from "../components/SiteNav";
@@ -20,28 +11,10 @@ import { Tech } from "../components/Tech";
 import { WP_REST_API_Posts } from "wp-types";
 
 interface HomeProps {
-  posts: Post[];
   wpPosts: WP_REST_API_Posts;
 }
 
-interface Post {
-  frontmatter: {
-    [key: string]: any;
-  };
-  slug: string;
-  content: string;
-  createDate: any;
-  modifiedDate: any;
-}
-
-export default function Home({ posts, wpPosts }: HomeProps) {
-  const publishedPosts = posts.filter(
-    (post: any) =>
-      isBefore(new Date(post.createDate), new Date()) ||
-      new Date(post.createDate) === new Date()
-  );
-  const wpPublishedPosts = wpPosts;
-
+export default function Home({ wpPosts }: HomeProps) {
   return (
     <ErrorBoundary>
       <Head>
@@ -66,9 +39,6 @@ export default function Home({ posts, wpPosts }: HomeProps) {
             {wpPosts.map((post) => (
               <WpPost key={post.slug} post={post} />
             ))}
-            {/* {publishedPosts.map((post) => (
-              <Post key={post.slug} post={post} />
-            ))} */}
           </article>
         </main>
 
@@ -79,49 +49,11 @@ export default function Home({ posts, wpPosts }: HomeProps) {
 }
 
 export async function getStaticProps() {
-  const wpPosts = await getPosts();
-
-  const postFiles = fs.readdirSync("posts");
-
-  const posts = await Promise.all(
-    postFiles.map(async (postFile) => {
-      const slug = postFile.split(".")[0].slice(11);
-      const post = getPostBySlug(slug);
-
-      const mdxSource = await serialize(post.frontmatter.description, {
-        mdxOptions: {
-          rehypePlugins: [rehypePrism, [imageSize, { dir: "public" }]],
-          remarkPlugins: [remarkGfm],
-        },
-      });
-
-      return {
-        ...post,
-        mdxSource,
-      };
-    })
-  ).then((posts) =>
-    posts
-      .filter((post) => post.frontmatter.published)
-      .sort((a, b) => {
-        const modifiedDays = differenceInDays(
-          parseISO(b.modifiedDate),
-          parseISO(a.modifiedDate)
-        );
-        const createDays = differenceInDays(
-          parseISO(b.createDate),
-          parseISO(a.createDate)
-        );
-
-        // first try and sort by modified date, otherwise sort by create date
-        return modifiedDays || createDays;
-      })
-  );
+  const wpPosts = await getPosts("publish", 99);
 
   return {
     props: {
       wpPosts,
-      posts,
     },
   };
 }
