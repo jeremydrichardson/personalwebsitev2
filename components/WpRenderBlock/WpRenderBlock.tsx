@@ -2,6 +2,7 @@ import { ParsedBlock } from "@wordpress/block-serialization-default-parser";
 import { Markup, MarkupProps } from "interweave";
 import { Code } from "./Code";
 import { Image } from "./Image";
+import { Quote } from "./Quote";
 
 interface WpRenderBlockProps {
   block: ParsedBlock;
@@ -44,6 +45,10 @@ export const WpRenderBlock = ({ block, markupProps }: WpRenderBlockProps) => {
 
   if (block.blockName === "core/image") {
     return <Image block={block} />;
+  }
+
+  if (block.blockName === "core/quote") {
+    return <Quote block={block} />;
   }
 
   return (
