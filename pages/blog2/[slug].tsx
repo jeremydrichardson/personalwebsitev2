@@ -13,7 +13,6 @@ import {
   ParsedBlock,
 } from "@wordpress/block-serialization-default-parser";
 import { polyfill } from "interweave-ssr";
-import { InnerBlocks } from "../../lib/wp-block-renderer/types";
 import { WpRenderBlock } from "../../components/WpRenderBlock/WpRenderBlock";
 
 polyfill();
@@ -24,17 +23,6 @@ export default function PostPage(props: {
 }) {
   const { slug, content, modified, date, title, tags } = props.post;
   const blocks = content.raw !== undefined ? parse(content.raw) : [];
-
-  const parsedBlockToInnerBlocks = (parsedBlock: ParsedBlock): InnerBlocks => {
-    return {
-      blockName: parsedBlock.blockName || "",
-      attrs: parsedBlock.attrs as Record<string, unknown>,
-      innerBlocks: parsedBlock.innerBlocks.map((block) =>
-        parsedBlockToInnerBlocks(block)
-      ),
-      innerHTML: parsedBlock.innerHTML,
-    };
-  };
 
   const createDateFormatted = date
     ? format(parseISO(date), "MMM d, yyyy")
