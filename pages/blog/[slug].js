@@ -32,7 +32,7 @@ export default function PostPage({
     <ErrorBoundary>
       <Layout>
         <Head>
-          <title>{`Jeremy&apos;s blog - ${title}`}</title>
+          <title>{`Jeremy's blog - ${title}`}</title>
         </Head>
         <div className="container prose prose-sm md:prose">
           <Link href="/" legacyBehavior>

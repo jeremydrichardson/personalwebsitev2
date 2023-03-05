@@ -47,7 +47,7 @@ export default function PostPage(props: {
     <ErrorBoundary>
       <Layout>
         <Head>
-          <title>{`Jeremy&apos;s blog - ${title.rendered}`}</title>
+          <title>{`Jeremy's blog - ${title.rendered}`}</title>
         </Head>
         <div className="container prose prose-sm md:prose">
           <Link href="/" legacyBehavior>
