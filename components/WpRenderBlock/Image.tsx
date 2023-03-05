@@ -13,12 +13,10 @@ interface ImageProps {
 type ImageAttributes = { className: string };
 
 export const Image = ({ block }: ImageProps) => {
-  console.log("img block", block);
   const dom = parseDocument(block.innerHTML.trim());
   const imgElement = findOne((elem) => {
     return elem.name === "img";
   }, dom.childNodes);
-  console.log(imgElement);
 
   if (!imgElement?.attribs.src) return null;
 
