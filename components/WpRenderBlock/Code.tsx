@@ -1,7 +1,7 @@
 import { ParsedBlock } from "@wordpress/block-serialization-default-parser";
 import Highlight, { defaultProps, Language } from "prism-react-renderer";
-import { Parser, parseDocument } from "htmlparser2";
-import { findOne, removeElement, getElementsByTagName } from "domutils";
+import { parseDocument } from "htmlparser2";
+import { getElementsByTagName } from "domutils";
 import render from "dom-serializer";
 
 interface CodeProps {
@@ -61,9 +61,10 @@ export const Code = ({ block }: CodeProps) => {
   const attributes = block.attrs as CodeAttributes;
   const languageClassname = attributes.className
     ? attributes.className.match(/lang-[^.]*?(\w+)/)
-    : "";
+    : ["lang-bash", "bash"];
+  console.log("languageClassname", languageClassname);
 
-  if (languageClassname === null || !isValidLanguage(languageClassname[0])) {
+  if (languageClassname === null || !isValidLanguage(languageClassname[1])) {
     return <pre className="code">{rawCode}</pre>;
   }
 
@@ -71,7 +72,7 @@ export const Code = ({ block }: CodeProps) => {
     <Highlight
       {...defaultProps}
       code={rawCode}
-      language={languageClassname[0] as Language}
+      language={languageClassname[1] as Language}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={className} style={style}>
