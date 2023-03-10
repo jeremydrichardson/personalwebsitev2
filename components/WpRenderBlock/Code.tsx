@@ -60,7 +60,7 @@ export const Code = ({ block }: CodeProps) => {
 
   const attributes = block.attrs as CodeAttributes;
   const languageClassname = attributes.className
-    ? attributes.className.match(/(?<=lang-[^.]*?)\w+/)
+    ? attributes.className.match(/lang-[^.]*?(\w+)/)
     : "";
 
   if (languageClassname === null || !isValidLanguage(languageClassname[0])) {
