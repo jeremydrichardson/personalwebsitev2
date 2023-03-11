@@ -1,5 +1,6 @@
 import { ParsedBlock } from "@wordpress/block-serialization-default-parser";
 import Highlight, { defaultProps, Language } from "prism-react-renderer";
+import nightOwl from "prism-react-renderer/themes/nightOwl";
 import { parseDocument } from "htmlparser2";
 import { getElementsByTagName } from "domutils";
 import render from "dom-serializer";
@@ -71,6 +72,7 @@ export const Code = ({ block }: CodeProps) => {
   return (
     <Highlight
       {...defaultProps}
+      theme={nightOwl}
       code={rawCode}
       language={languageClassname[1] as Language}
     >
