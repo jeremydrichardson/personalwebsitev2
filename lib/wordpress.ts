@@ -13,7 +13,7 @@ export async function getPosts(
 ): Promise<WP_REST_API_Posts> {
   try {
     const postsRes = await fetch(
-      `${BASE_URL}/posts?_embed&status=${status}&per_page=${per_page}`,
+      `${BASE_URL}/posts?_embed&status=${status}&per_page=${per_page}&_fields=title,slug,date,excerpt`,
       {
         headers: {
           Authorization: `BEARER ${process.env.WP_ACCESS_TOKEN}`,
