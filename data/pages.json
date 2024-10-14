@@ -1,0 +1,619 @@
+[
+    {
+        "id": 9,
+        "title": "Blog Feed",
+        "content": [],
+        "date": "2019-12-17 04:21:21",
+        "slug": "blog-feed",
+        "parent": 0
+    },
+    {
+        "id": 10,
+        "title": "Home",
+        "content": [
+            {
+                "blockName": "core\/cover",
+                "attrs": {
+                    "url": "https:\/\/jeremyrichardsonhome.files.wordpress.com\/2019\/12\/mountaindawn.jpg",
+                    "id": 162,
+                    "dimRatio": 0,
+                    "focalPoint": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "align": "full"
+                },
+                "innerBlocks": [
+                    {
+                        "blockName": "core\/heading",
+                        "attrs": {
+                            "align": "center",
+                            "level": 1
+                        },
+                        "innerBlocks": [],
+                        "innerHTML": "\n<h1 class=\"has-text-align-center\">Hi, I'm Jeremy<\/h1>\n"
+                    }
+                ],
+                "innerHTML": "\n<div class=\"wp-block-cover alignfull\" style=\"background-image:url('https:\/\/jeremyrichardsonhome.wordpress.com\/wp-content\/uploads\/2019\/12\/mountaindawn.jpg');background-position:50% 50%;\"><div class=\"wp-block-cover__inner-container\"><\/div><\/div>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/spacer",
+                "attrs": {
+                    "height": 20
+                },
+                "innerBlocks": [],
+                "innerHTML": "\n<div style=\"height:20px;\" aria-hidden=\"true\" class=\"wp-block-spacer\"><\/div>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "a8c\/blog-posts",
+                "attrs": {
+                    "showAvatar": false,
+                    "postLayout": "grid"
+                },
+                "innerBlocks": [],
+                "innerHTML": ""
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/spacer",
+                "attrs": {
+                    "height": 20
+                },
+                "innerBlocks": [],
+                "innerHTML": "\n<div style=\"height:20px;\" aria-hidden=\"true\" class=\"wp-block-spacer\"><\/div>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/separator",
+                "attrs": {
+                    "className": "is-style-wide"
+                },
+                "innerBlocks": [],
+                "innerHTML": "\n<hr class=\"wp-block-separator is-style-wide\" \/>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/heading",
+                "attrs": {
+                    "align": "left",
+                    "level": 3
+                },
+                "innerBlocks": [],
+                "innerHTML": "\n<h3 class=\"has-text-align-left\">Follow My Blog<\/h3>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/paragraph",
+                "attrs": {
+                    "align": "left"
+                },
+                "innerBlocks": [],
+                "innerHTML": "\n<p class=\"has-text-align-left\">Get new content delivered directly to your inbox.<\/p>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "jetpack\/subscriptions",
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n<div class=\"wp-block-jetpack-subscriptions\">[jetpack_subscription_form show_only_email_and_button=\"true\" custom_background_button_color=\"undefined\" custom_text_button_color=\"undefined\" submit_button_text=\"Subscribe\" submit_button_classes=\"undefined\" show_subscribers_total=\"false\" ]<\/div>\n"
+            }
+        ],
+        "date": "2019-12-17 04:21:19",
+        "slug": "blog",
+        "parent": 0
+    },
+    {
+        "id": 202,
+        "title": "Portfolio",
+        "content": [
+            {
+                "blockName": "core\/paragraph",
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n<p>A quick look at some of the projects I've worked on over the years.<\/p>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/heading",
+                "attrs": {
+                    "level": 3
+                },
+                "innerBlocks": [],
+                "innerHTML": "\n<h3>Shiloh University<\/h3>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/gallery",
+                "attrs": {
+                    "ids": [
+                        223,
+                        224,
+                        222
+                    ]
+                },
+                "innerBlocks": [],
+                "innerHTML": "\n<figure class=\"wp-block-gallery columns-3 is-cropped\"><ul class=\"blocks-gallery-grid\"><li class=\"blocks-gallery-item\"><figure><img src=\"http:\/\/localhost:8881\/wp-content\/uploads\/2019\/10\/b8fb1-screen-shot-2019-10-03-at-9.12.41-pm.png?w=750\" alt=\"\" data-id=\"223\" class=\"wp-image-223\" \/><\/figure><\/li><li class=\"blocks-gallery-item\"><figure><img src=\"http:\/\/localhost:8881\/wp-content\/uploads\/2019\/10\/84021-screen-shot-2019-10-03-at-9.13.43-pm.png?w=750\" alt=\"\" data-id=\"224\" class=\"wp-image-224\" \/><\/figure><\/li><li class=\"blocks-gallery-item\"><figure><img src=\"http:\/\/localhost:8881\/wp-content\/uploads\/2019\/10\/465bb-screen-shot-2019-10-03-at-9.11.46-pm.png?w=750\" alt=\"\" data-id=\"222\" class=\"wp-image-222\" \/><\/figure><\/li><\/ul><\/figure>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/paragraph",
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n<p>WordPress CMS<br>Built landing pages to accompany ad campaigns<br>Bootstrap, Custom built blocks, student course proposal plugin, SASS, CI with BitBucket pipelines.<\/p>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/heading",
+                "attrs": {
+                    "level": 3
+                },
+                "innerBlocks": [],
+                "innerHTML": "\n<h3>Aeolian Hall<\/h3>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/gallery",
+                "attrs": {
+                    "ids": [
+                        174,
+                        173,
+                        172
+                    ],
+                    "linkTo": "media"
+                },
+                "innerBlocks": [],
+                "innerHTML": "\n<figure class=\"wp-block-gallery columns-3 is-cropped\"><ul class=\"blocks-gallery-grid\"><li class=\"blocks-gallery-item\"><figure><a href=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/2f492-aeolianhall-home-1.jpg\"><img src=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/2f492-aeolianhall-home-1.jpg\" alt=\"\" data-id=\"174\" data-link=\"http:\/\/www.justjerm.com\/?attachment_id=174\" class=\"wp-image-174\" \/><\/a><\/figure><\/li><li class=\"blocks-gallery-item\"><figure><a href=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/95c23-aeolianhall-eventlist.jpg\"><img src=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/95c23-aeolianhall-eventlist.jpg\" alt=\"\" data-id=\"173\" data-link=\"http:\/\/www.justjerm.com\/?attachment_id=173\" class=\"wp-image-173\" \/><\/a><\/figure><\/li><li class=\"blocks-gallery-item\"><figure><a href=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/a66ac-aeolianhall-mapsidebar.jpg\"><img src=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/a66ac-aeolianhall-mapsidebar.jpg\" alt=\"\" data-id=\"172\" data-link=\"http:\/\/www.justjerm.com\/?attachment_id=172\" class=\"wp-image-172\" \/><\/a><\/figure><\/li><\/ul><\/figure>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/paragraph",
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n<p>Drupal CMS<br>Built Drupal theme from Photoshop comps, custom content types for events, registration through EventBrite.<br>Responsible for all templates, CSS, module setup.<\/p>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/heading",
+                "attrs": {
+                    "level": 3
+                },
+                "innerBlocks": [],
+                "innerHTML": "\n<h3>DisneyABC Syndication Programming Info<\/h3>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/gallery",
+                "attrs": {
+                    "ids": [
+                        178,
+                        176,
+                        177
+                    ],
+                    "linkTo": "media"
+                },
+                "innerBlocks": [],
+                "innerHTML": "\n<figure class=\"wp-block-gallery columns-3 is-cropped\"><ul class=\"blocks-gallery-grid\"><li class=\"blocks-gallery-item\"><figure><a href=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/134b5-disneyabc-programlist.png?w=998&amp;h=1024\"><img src=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/134b5-disneyabc-programlist.png?w=998&amp;h=1024\" alt=\"\" data-id=\"178\" data-link=\"http:\/\/www.justjerm.com\/sample-page\/disneyabc-programlist\/\" class=\"wp-image-178\" \/><\/a><\/figure><\/li><li class=\"blocks-gallery-item\"><figure><a href=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/3c3a8-disneyabc-manageprograms.gif\"><img src=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/3c3a8-disneyabc-manageprograms.gif\" alt=\"\" data-id=\"176\" data-link=\"http:\/\/www.justjerm.com\/sample-page\/disneyabc-manageprograms\/\" class=\"wp-image-176\" \/><\/a><\/figure><\/li><li class=\"blocks-gallery-item\"><figure><a href=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/33c83-disneyabc-manageschedule.gif\"><img src=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/33c83-disneyabc-manageschedule.gif\" alt=\"\" data-id=\"177\" data-link=\"http:\/\/www.justjerm.com\/sample-page\/disneyabc-manageschedule\/\" class=\"wp-image-177\" \/><\/a><\/figure><\/li><\/ul><\/figure>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/paragraph",
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n<p>CodeIgniter App<br>Prototype.js, database design, custom connector to FileMaker files, FFMPEG for preview generation of video clips, <\/p>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/heading",
+                "attrs": {
+                    "level": 3
+                },
+                "innerBlocks": [],
+                "innerHTML": "\n<h3>Marilyn Farms Shopify e-commerce site<\/h3>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/gallery",
+                "attrs": {
+                    "ids": [
+                        189,
+                        188,
+                        190
+                    ],
+                    "linkTo": "media"
+                },
+                "innerBlocks": [],
+                "innerHTML": "\n<figure class=\"wp-block-gallery columns-3 is-cropped\"><ul class=\"blocks-gallery-grid\"><li class=\"blocks-gallery-item\"><figure><a href=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/bfb28-marilynfarms-home.png?w=802&amp;h=1024\"><img src=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/bfb28-marilynfarms-home.png?w=802&amp;h=1024\" alt=\"\" data-id=\"189\" data-link=\"http:\/\/www.justjerm.com\/marilynfarms-home\/\" class=\"wp-image-189\" \/><\/a><\/figure><\/li><li class=\"blocks-gallery-item\"><figure><a href=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/c5e68-marilynfarms-cart.png?w=885&amp;h=1024\"><img src=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/c5e68-marilynfarms-cart.png?w=885&amp;h=1024\" alt=\"\" data-id=\"188\" data-link=\"http:\/\/www.justjerm.com\/marilynfarms-cart\/\" class=\"wp-image-188\" \/><\/a><\/figure><\/li><li class=\"blocks-gallery-item\"><figure><a href=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/a84e9-marilynfarms-productlist.png?w=621&amp;h=1024\"><img src=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/a84e9-marilynfarms-productlist.png?w=621&amp;h=1024\" alt=\"\" data-id=\"190\" data-link=\"http:\/\/www.justjerm.com\/marilynfarms-productlist\/\" class=\"wp-image-190\" \/><\/a><\/figure><\/li><\/ul><\/figure>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/heading",
+                "attrs": {
+                    "level": 3
+                },
+                "innerBlocks": [],
+                "innerHTML": "\n<h3>Thought Development<\/h3>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/gallery",
+                "attrs": {
+                    "ids": [
+                        "204"
+                    ],
+                    "linkTo": "media"
+                },
+                "innerBlocks": [],
+                "innerHTML": "\n<figure class=\"wp-block-gallery columns-1 is-cropped\"><ul class=\"blocks-gallery-grid\"><li class=\"blocks-gallery-item\"><figure><a href=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/138ca-thought-dev-tvnetworks.jpg?w=1024&amp;h=1024\"><img src=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/138ca-thought-dev-tvnetworks.jpg?w=1024&amp;h=1024\" alt=\"\" data-id=\"204\" data-link=\"http:\/\/www.justjerm.com\/sample-page\/thought-dev-tvnetworks\/\" class=\"wp-image-204\" \/><\/a><\/figure><\/li><\/ul><\/figure>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/paragraph",
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n<p>Drupal CMS<br>Built theme from designer Photoshop comps<\/p>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/heading",
+                "attrs": {
+                    "level": 3
+                },
+                "innerBlocks": [],
+                "innerHTML": "\n<h3>Reforest London<\/h3>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/gallery",
+                "attrs": {
+                    "ids": [
+                        193,
+                        194
+                    ],
+                    "linkTo": "media"
+                },
+                "innerBlocks": [],
+                "innerHTML": "\n<figure class=\"wp-block-gallery columns-2 is-cropped\"><ul class=\"blocks-gallery-grid\"><li class=\"blocks-gallery-item\"><figure><a href=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/491b9-reforestlondon-home.png?w=895&amp;h=1024\"><img src=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/491b9-reforestlondon-home.png?w=895&amp;h=1024\" alt=\"\" data-id=\"193\" data-link=\"http:\/\/www.justjerm.com\/sample-page\/reforestlondon-home\/\" class=\"wp-image-193\" \/><\/a><\/figure><\/li><li class=\"blocks-gallery-item\"><figure><a href=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/8a4cc-reforestlondon-work.png?w=996&amp;h=1024\"><img src=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/8a4cc-reforestlondon-work.png?w=996&amp;h=1024\" alt=\"\" data-id=\"194\" data-link=\"http:\/\/www.justjerm.com\/sample-page\/reforestlondon-work\/\" class=\"wp-image-194\" \/><\/a><\/figure><\/li><\/ul><\/figure>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/paragraph",
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n<p>Drupal CMS<br>Built Drupal theme from designer Photoshop files. Built user login system with Digg style voting for various trees uploaded by users.<\/p>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/heading",
+                "attrs": {
+                    "level": 3
+                },
+                "innerBlocks": [],
+                "innerHTML": "\n<h3>Shiloh Church, Living Word Community Church<\/h3>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/gallery",
+                "attrs": {
+                    "ids": [
+                        195,
+                        196
+                    ],
+                    "linkTo": "media"
+                },
+                "innerBlocks": [],
+                "innerHTML": "\n<figure class=\"wp-block-gallery columns-2 is-cropped\"><ul class=\"blocks-gallery-grid\"><li class=\"blocks-gallery-item\"><figure><a href=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/faeee-shilohchurch-home.png?w=780&amp;h=1024\"><img src=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/faeee-shilohchurch-home.png?w=780&amp;h=1024\" alt=\"\" data-id=\"195\" data-link=\"http:\/\/www.justjerm.com\/sample-page\/shilohchurch-home\/\" class=\"wp-image-195\" \/><\/a><\/figure><\/li><li class=\"blocks-gallery-item\"><figure><a href=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/11c0e-lwcc-home.png?w=710&amp;h=1024\"><img src=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/11c0e-lwcc-home.png?w=710&amp;h=1024\" alt=\"\" data-id=\"196\" data-link=\"http:\/\/www.justjerm.com\/sample-page\/lwcc-home\/\" class=\"wp-image-196\" \/><\/a><\/figure><\/li><\/ul><\/figure>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/heading",
+                "attrs": {
+                    "level": 3
+                },
+                "innerBlocks": [],
+                "innerHTML": "\n<h3>Las Chicas<\/h3>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/gallery",
+                "attrs": {
+                    "ids": [
+                        198,
+                        197
+                    ],
+                    "linkTo": "media"
+                },
+                "innerBlocks": [],
+                "innerHTML": "\n<figure class=\"wp-block-gallery columns-2 is-cropped\"><ul class=\"blocks-gallery-grid\"><li class=\"blocks-gallery-item\"><figure><a href=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/a6a4c-laschicas-home.jpg\"><img src=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/a6a4c-laschicas-home.jpg\" alt=\"\" data-id=\"198\" data-link=\"http:\/\/www.justjerm.com\/sample-page\/laschicas-home\/\" class=\"wp-image-198\" \/><\/a><\/figure><\/li><li class=\"blocks-gallery-item\"><figure><a href=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/ab8fc-laschicas-detail.jpg\"><img src=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/ab8fc-laschicas-detail.jpg\" alt=\"\" data-id=\"197\" data-link=\"http:\/\/www.justjerm.com\/sample-page\/laschicas-detail\/\" class=\"wp-image-197\" \/><\/a><\/figure><\/li><\/ul><\/figure>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/heading",
+                "attrs": {
+                    "level": 3
+                },
+                "innerBlocks": [],
+                "innerHTML": "\n<h3>Skyjack<\/h3>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/gallery",
+                "attrs": {
+                    "ids": [
+                        199,
+                        200,
+                        201
+                    ],
+                    "linkTo": "media"
+                },
+                "innerBlocks": [],
+                "innerHTML": "\n<figure class=\"wp-block-gallery columns-3 is-cropped\"><ul class=\"blocks-gallery-grid\"><li class=\"blocks-gallery-item\"><figure><a href=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/bb09d-skyjack-home.jpg\"><img src=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/bb09d-skyjack-home.jpg\" alt=\"\" data-id=\"199\" data-link=\"http:\/\/www.justjerm.com\/sample-page\/skyjack-home\/\" class=\"wp-image-199\" \/><\/a><\/figure><\/li><li class=\"blocks-gallery-item\"><figure><a href=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/f7a9e-skyjack-product.jpg\"><img src=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/f7a9e-skyjack-product.jpg\" alt=\"\" data-id=\"200\" data-link=\"http:\/\/www.justjerm.com\/sample-page\/skyjack-product\/\" class=\"wp-image-200\" \/><\/a><\/figure><\/li><li class=\"blocks-gallery-item\"><figure><a href=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/d4a03-skyjack-products.jpg\"><img src=\"http:\/\/localhost:8881\/wp-content\/uploads\/2018\/11\/d4a03-skyjack-products.jpg\" alt=\"\" data-id=\"201\" data-link=\"http:\/\/www.justjerm.com\/sample-page\/skyjack-products\/\" class=\"wp-image-201\" \/><\/a><\/figure><\/li><\/ul><\/figure>\n"
+            }
+        ],
+        "date": "2015-01-06 03:16:51",
+        "slug": "portfolio-2",
+        "parent": 0
+    },
+    {
+        "id": 2,
+        "title": "Sample Page",
+        "content": [
+            {
+                "blockName": "core\/paragraph",
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n<p>This is an example page and it's different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:<\/p>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/quote",
+                "attrs": [],
+                "innerBlocks": [
+                    {
+                        "blockName": "core\/paragraph",
+                        "attrs": [],
+                        "innerBlocks": [],
+                        "innerHTML": "\n<p>Hi there! I'm a bike messenger by day, aspiring actor by night, and this is my website. I live in Los Angeles, have a great dog named Jack, and I like pi\u00f1a coladas. (And gettin' caught in the rain.)<\/p>\n"
+                    }
+                ],
+                "innerHTML": "\n<blockquote class=\"wp-block-quote\"><\/blockquote>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/paragraph",
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n<p>...or something like this:<\/p>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/quote",
+                "attrs": [],
+                "innerBlocks": [
+                    {
+                        "blockName": "core\/paragraph",
+                        "attrs": [],
+                        "innerBlocks": [],
+                        "innerHTML": "\n<p>The XYZ Doohickey Company was founded in 1971, and has been providing quality doohickeys to the public ever since. Located in Gotham City, XYZ employs over 2,000 people and does all kinds of awesome things for the Gotham community.<\/p>\n"
+                    }
+                ],
+                "innerHTML": "\n<blockquote class=\"wp-block-quote\"><\/blockquote>\n"
+            },
+            {
+                "blockName": null,
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n\n",
+                "textContent": ""
+            },
+            {
+                "blockName": "core\/paragraph",
+                "attrs": [],
+                "innerBlocks": [],
+                "innerHTML": "\n<p>As a new WordPress user, you should go to <a href=\"http:\/\/localhost:8881\/wp-admin\/\">your dashboard<\/a> to delete this page and create new pages for your content. Have fun!<\/p>\n"
+            }
+        ],
+        "date": "2024-10-13 02:29:04",
+        "slug": "sample-page",
+        "parent": 0
+    }
+]
