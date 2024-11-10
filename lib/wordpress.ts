@@ -4,8 +4,12 @@ import {
   WP_REST_API_Tags,
 } from "wp-types";
 
-const BASE_URL =
-  "https://public-api.wordpress.com/wp/v2/sites/jeremyrichardson.home.blog";
+const BASE_URL = "https://wp.jeremyrichardson.dev/wp-json/wp/v2";
+const REST_USERNAME = process.env.REST_USERNAME || "";
+const REST_PASSWORD = process.env.REST_PASSWORD || "";
+const basicAuth = Buffer.from(REST_USERNAME + ":" + REST_PASSWORD).toString(
+  "base64"
+);
 
 export async function getPosts(
   status = "publish",
@@ -16,7 +20,7 @@ export async function getPosts(
       `${BASE_URL}/posts?_embed&status=${status}&per_page=${per_page}&_fields=title,slug,date,excerpt`,
       {
         headers: {
-          Authorization: `BEARER ${process.env.WP_ACCESS_TOKEN}`,
+          Authorization: `Basic ${basicAuth}`,
         },
       }
     );
@@ -33,7 +37,7 @@ export async function getPost(slug: string): Promise<WP_REST_API_Post> {
       `${BASE_URL}/posts/?_embed&context=edit&slug=${slug}`,
       {
         headers: {
-          Authorization: `BEARER ${process.env.WP_ACCESS_TOKEN}`,
+          Authorization: `Basic ${basicAuth}`,
         },
       }
     );
