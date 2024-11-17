@@ -6,8 +6,8 @@ const config = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "jeremyrichardsonhome.files.wordpress.com",
-        pathname: "/**",
+        hostname: "wp.jeremyrichardson.dev",
+        pathname: "/wp-content/uploads/**",
       },
     ],
   },
