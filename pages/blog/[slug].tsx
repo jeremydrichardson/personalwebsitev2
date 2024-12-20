@@ -26,7 +26,7 @@ polyfill();
 export default function PostPage(props: {
   post: WP_REST_API_Post_Expanded;
   postTags: WP_REST_API_Tags;
-  imageDetails: WP_REST_API_Attachment[];
+  // imageDetails: WP_REST_API_Attachment[];
 }) {
   const { slug, modified, date, title, tags, parsed_content } = props.post;
 
@@ -112,19 +112,19 @@ export const getStaticProps: GetStaticProps<
   const slug = context.params.slug;
   const post = await getPost(slug);
 
-  const imageDetailsPromises = post.parsed_content
-    .filter((block) => block.blockName === "core/image")
-    .map((block) => {
-      if (block.attrs && "id" in block.attrs) {
-        return getAttachment(block.attrs.id as number);
-      }
-    });
-  const imageDetails = await Promise.all(imageDetailsPromises);
+  // const imageDetailsPromises = post.parsed_content
+  //   .filter((block) => block.blockName === "core/image")
+  //   .map((block) => {
+  //     if (block.attrs && "id" in block.attrs) {
+  //       return getAttachment(block.attrs.id as number);
+  //     }
+  //   });
+  // const imageDetails = await Promise.all(imageDetailsPromises);
   const postTags = await getTagsByPost(post.id);
 
   return {
     props: {
-      imageDetails,
+      // imageDetails,
       post,
       postTags,
     },
