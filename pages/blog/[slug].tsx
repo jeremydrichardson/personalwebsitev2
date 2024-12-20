@@ -4,22 +4,31 @@ import Head from "next/head";
 import { format, parseISO } from "date-fns";
 import { ErrorBoundary } from "../../components/ErrorBoundary";
 import { DiscussionEmbed } from "disqus-react";
-import { getPosts, getPost, getTagsByPost } from "../../lib/wordpress";
-import { WP_REST_API_Post, WP_REST_API_Tags } from "wp-types";
+import {
+  getPosts,
+  getPost,
+  getTagsByPost,
+  getAttachment,
+} from "../../lib/wordpress";
+import {
+  WP_REST_API_Attachment,
+  WP_REST_API_Post,
+  WP_REST_API_Tags,
+} from "wp-types";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
-import { parse } from "@wordpress/block-serialization-default-parser";
 import { polyfill } from "interweave-ssr";
 import { WpRenderBlock } from "../../components/WpRenderBlock/WpRenderBlock";
+import { WP_REST_API_Post_Expanded } from "../../types/WordPress";
 
 polyfill();
 
 export default function PostPage(props: {
-  post: WP_REST_API_Post;
+  post: WP_REST_API_Post_Expanded;
   postTags: WP_REST_API_Tags;
+  imageDetails: WP_REST_API_Attachment[];
 }) {
-  const { slug, content, modified, date, title, tags } = props.post;
-  const blocks = content.raw !== undefined ? parse(content.raw) : [];
+  const { slug, modified, date, title, tags, parsed_content } = props.post;
 
   const createDateFormatted = date
     ? format(parseISO(date), "MMM d, yyyy")
@@ -58,7 +67,7 @@ export default function PostPage(props: {
                 Tags: {props.postTags.map((postTag) => postTag.name).join(", ")}
               </div>
             )}
-            {blocks.map((block, index) => {
+            {parsed_content.map((block, index) => {
               return <WpRenderBlock key={index} block={block} />;
             })}
           </div>
@@ -95,17 +104,27 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
 };
 
 export const getStaticProps: GetStaticProps<
-  { post: WP_REST_API_Post },
+  { post: WP_REST_API_Post_Expanded },
   Params
 > = async (context) => {
   if (!context.params?.slug) throw new Error();
 
   const slug = context.params.slug;
   const post = await getPost(slug);
+
+  const imageDetailsPromises = post.parsed_content
+    .filter((block) => block.blockName === "core/image")
+    .map((block) => {
+      if (block.attrs && "id" in block.attrs) {
+        return getAttachment(block.attrs.id as number);
+      }
+    });
+  const imageDetails = await Promise.all(imageDetailsPromises);
   const postTags = await getTagsByPost(post.id);
 
   return {
     props: {
+      imageDetails,
       post,
       postTags,
     },

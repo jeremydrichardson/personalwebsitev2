@@ -25,6 +25,7 @@ export const Image = ({ block }: ImageProps) => {
     fetch(`https://wp.jeremyrichardson.dev/wp-json/wp/v2/media/${blockId}`)
       .then((res) => res.json())
       .then((json) => {
+        setMediaInfo(json);
         console.log("json", json);
       });
   }, [blockId]);
