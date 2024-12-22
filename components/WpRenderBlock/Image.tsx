@@ -1,4 +1,7 @@
-import { ParsedBlock } from "@wordpress/block-serialization-default-parser";
+import {
+  Attributes,
+  ParsedBlock,
+} from "@wordpress/block-serialization-default-parser";
 import Highlight, { defaultProps, Language } from "prism-react-renderer";
 import { Parser, parseDocument } from "htmlparser2";
 import { findOne } from "domutils";
@@ -9,7 +12,11 @@ import { useEffect, useState } from "react";
 import { WP_REST_API_Attachment } from "wp-types";
 
 interface ImageProps {
-  block: ParsedBlock;
+  block: ParsedImageBlock;
+}
+
+interface ParsedImageBlock extends ParsedBlock {
+  attrs: { id?: number } | null;
 }
 
 type ImageAttributes = { className: string };
@@ -25,6 +32,7 @@ export const Image = ({ block }: ImageProps) => {
     fetch(`https://wp.jeremyrichardson.dev/wp-json/wp/v2/media/${blockId}`)
       .then((res) => res.json())
       .then((json) => {
+        setMediaInfo(json);
         console.log("json", json);
       });
   }, [blockId]);

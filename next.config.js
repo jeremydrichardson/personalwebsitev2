@@ -9,6 +9,11 @@ const config = {
         hostname: "wp.jeremyrichardson.dev",
         pathname: "/wp-content/uploads/**",
       },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        pathname: "/wp-content/uploads/**",
+      },
     ],
   },
 };
