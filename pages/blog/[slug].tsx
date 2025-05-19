@@ -67,19 +67,19 @@ export default function PostPage(props: {
                 Tags: {props.postTags.map((postTag) => postTag.name).join(", ")}
               </div>
             )}
-            {parsed_content.map((block, index) => {
+            {parsed_content?.map((block, index) => {
               return <WpRenderBlock key={index} block={block} />;
             })}
           </div>
         </div>
-        <DiscussionEmbed
+        {/* <DiscussionEmbed
           shortname="jeremyrichardson"
           config={{
             url: `https://jeremyrichardson.dev/blog/${slug}`,
             identifier: slug,
             title: title.rendered,
           }}
-        />
+        /> */}
       </Layout>
     </ErrorBoundary>
   );
