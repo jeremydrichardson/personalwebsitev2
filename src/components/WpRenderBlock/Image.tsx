@@ -1,8 +1,9 @@
+"use client";
+
 import {
   Attributes,
   ParsedBlock,
 } from "@wordpress/block-serialization-default-parser";
-import Highlight, { defaultProps, Language } from "prism-react-renderer";
 import { Parser, parseDocument } from "htmlparser2";
 import { findOne } from "domutils";
 import render from "dom-serializer";
@@ -33,7 +34,7 @@ export const Image = ({ block }: ImageProps) => {
       .then((res) => res.json())
       .then((json) => {
         setMediaInfo(json);
-        console.log("json", json);
+        // console.log("json", json);
       });
   }, [blockId]);
 

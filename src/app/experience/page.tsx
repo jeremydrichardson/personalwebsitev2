@@ -3,11 +3,11 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import { Tdc } from "../components/experience/Tdc";
-import { Su } from "../components/experience/Su";
+import { Tdc } from "../../components/experience/Tdc";
+import { Su } from "../../components/experience/Su";
 import { FaBriefcase } from "react-icons/fa";
-import { SiteNav } from "../components/SiteNav";
-import { Mint } from "../components/experience/Mint";
+import { SiteNav } from "../../components/SiteNav";
+import { Mint } from "../../components/experience/Mint";
 
 export default function Experience() {
   return (

@@ -21,8 +21,8 @@ export const WpRenderBlock = ({ block, markupProps }: WpRenderBlockProps) => {
 
     return <Markup noWrap={true} content={`<ul>${listItems.join("")}</ul>`} />;
   }
-
   if (block.blockName === "core/code") {
+    // console.log("block in render", block);
     return <Code block={block} />;
   }
 

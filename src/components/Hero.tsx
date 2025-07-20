@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import profilePic from "../public/img/jeremy-profile@2x.png";
 
 const Hero = () => {
   return (
@@ -18,7 +17,7 @@ const Hero = () => {
         <div className="hero-image hero-section">
           <div className="profile-picture-border">
             <Image
-              src={profilePic}
+              src="/img/jeremy-profile@2x.png"
               width="200"
               height="200"
               className="profile-picture"

@@ -1,3 +1,4 @@
+/** @type {import('next').NextConfig} */
 const config = {
   // Append the default value with md extensions
   pageExtensions: ["ts", "tsx", "js", "jsx"],
