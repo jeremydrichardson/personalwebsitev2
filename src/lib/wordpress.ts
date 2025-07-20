@@ -46,7 +46,7 @@ export async function getPost(
     }
   );
   const posts: WP_REST_API_Post_Expanded[] = await postsRes.json();
-  console.log("posts", posts[0].parsed_content);
+
   if (posts.length !== 1)
     throw new Error("There was an error retrieving this post.");
 
