@@ -4,6 +4,7 @@ const config = {
   pageExtensions: ["ts", "tsx", "js", "jsx"],
   reactStrictMode: true,
   images: {
+    dangerouslyAllowLocalIP: true,
     remotePatterns: [
       {
         protocol: "https",
