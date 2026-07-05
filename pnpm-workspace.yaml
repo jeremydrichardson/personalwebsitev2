@@ -1,8 +1,6 @@
-packages:
-  - '.'
-
-allowBuilds:
-  '@parcel/watcher': true
-  react-vertical-timeline-component: true
-  sharp: true
-  unrs-resolver: true
+ignoredBuiltDependencies:
+  - react-vertical-timeline-component
+onlyBuiltDependencies:
+  - "@parcel/watcher"
+  - sharp
+  - unrs-resolver
