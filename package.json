@@ -17,7 +17,7 @@
     "domutils": "^3.0.1",
     "gitlog": "^4.0.4",
     "htmlparser2": "^9.0.0",
-    "interweave": "^13.0.0",
+    "interweave": "^13.1.1",
     "lodash-es": "^4.17.21",
     "next": "^16.2.10",
     "prettier": "^3.6.2",
@@ -25,6 +25,18 @@
     "react-dom": "^19.2.7",
     "react-icons": "^4.12.0",
     "react-vertical-timeline-component": "^3.6.0"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "^22.0.0",
+      "onFail": "download"
+    },
+    "packageManager": {
+      "name": "pnpm",
+      "version": ">=11.0.0 <12.0.0",
+      "onFail": "download"
+    }
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.12",
@@ -41,8 +53,5 @@
     "sass": "^1.69.5",
     "typescript": "^5.3.3",
     "wp-types": "^3.61.0"
-  },
-  "volta": {
-    "node": "22.17.1"
   }
 }
