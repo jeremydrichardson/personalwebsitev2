@@ -1,9 +1,13 @@
-import Link from "next/link";
-import Layout from "../../../components/Layout";
 import { format, parseISO } from "date-fns";
+import {
+  WelkBadge,
+  WelkBreadCrumbs,
+  WelkDivider,
+} from "@welkui/react";
 import { getPosts, getPost, getTagsByPost } from "../../../lib/wordpress";
 import { polyfill } from "interweave-ssr";
 import { WpRenderBlock } from "../../../components/WpRenderBlock/WpRenderBlock";
+import { BlogBackButton } from "../../../components/BlogBackButton";
 
 polyfill();
 
@@ -28,41 +32,56 @@ export default async function PostPage({
   const modifiedDateFormatted = modified
     ? format(parseISO(modified), "MMM d, yyyy")
     : null;
+  const plainTitle = title.rendered.replace(/<[^>]+>/g, "");
 
   return (
-    <>
-      <Layout>
-        <div className="container prose prose-sm md:prose">
-          <Link href="/" className="btn btn-back">
-            Go Back
-          </Link>
-          <div className="card card-page">
-            <h1
-              className="post-title"
-              dangerouslySetInnerHTML={{ __html: title.rendered }}
-            />
-            <div className="post-create-date">
-              Posted:&nbsp;
-              <time dateTime={date}>{createDateFormatted}</time>
-            </div>
-            {createDateFormatted !== modifiedDateFormatted && (
-              <div className="post-modified-date">
-                Last modified:&nbsp;
-                <time dateTime={modified}>{modifiedDateFormatted}</time>
-              </div>
+    <main>
+      <article className="section">
+        <BlogBackButton />
+        <WelkBreadCrumbs
+          items={[
+            { label: "Home", href: "/" },
+            { label: "Blog", href: "/#posts" },
+            { label: plainTitle },
+          ]}
+        />
+
+        <header className="blog-header comic-panel" style={{ marginTop: "1rem" }}>
+          <h1
+            className="blog-title"
+            dangerouslySetInnerHTML={{ __html: title.rendered }}
+          />
+          <div className="blog-meta">
+            {createDateFormatted && (
+              <time dateTime={date}>Posted {createDateFormatted}</time>
             )}
-            {tags && postTags && (
-              <div className="post-tags">
-                Tags: {postTags.map((postTag) => postTag.name).join(", ")}
-              </div>
-            )}
-            {parsed_content?.map((block, index) => {
-              return <WpRenderBlock key={index} block={block} />;
-            })}
+            {createDateFormatted !== modifiedDateFormatted &&
+              modifiedDateFormatted && (
+                <time dateTime={modified}>
+                  Updated {modifiedDateFormatted}
+                </time>
+              )}
           </div>
+          {tags && postTags && postTags.length > 0 && (
+            <div className="blog-tags">
+              {postTags.map((postTag) => (
+                <WelkBadge key={postTag.id} size="sm" variant="default">
+                  {postTag.name}
+                </WelkBadge>
+              ))}
+            </div>
+          )}
+        </header>
+
+        <WelkDivider variant="dotted" style={{ margin: "1.25rem 0" }} />
+
+        <div className="blog-body comic-panel">
+          {parsed_content?.map((block, index) => {
+            return <WpRenderBlock key={index} block={block} />;
+          })}
         </div>
-      </Layout>
-    </>
+      </article>
+    </main>
   );
 }
 

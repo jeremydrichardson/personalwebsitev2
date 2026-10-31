@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "../styles/globals.scss";
+import "@welkui/react/styles.css";
+import "../styles/welk-site.scss";
 import "../styles/prism-night-owl.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import { SiteHeader } from "../components/SiteHeader";
+import { SiteFooter } from "../components/SiteFooter";
 
 export const metadata: Metadata = {
   title: "Jeremy Richardson",
@@ -20,7 +20,13 @@ export default function RootLayout({
       <head>
         <link rel="shortcut icon" href="/favicon.png" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body>
+        <div className="site-shell">
+          <SiteHeader />
+          <div className="site-main">{children}</div>
+          <SiteFooter />
+        </div>
+      </body>
     </html>
   );
 }
