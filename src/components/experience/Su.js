@@ -1,11 +1,10 @@
 export function Su() {
   return (
-    <>
-      <h2 className="company-name">
-        Shiloh University&nbsp;&nbsp;&nbsp;
-        <span className="position-title">Educational Systems Manager</span>
-      </h2>
-      <p className="position-date-range">Jan 2019 - May 2020</p>
+    <div>
+      <p className="experience-role">
+        <strong>Educational Systems Manager</strong>
+      </p>
+      <p className="experience-dates">Jan 2019 - May 2020</p>
 
       <ul>
         <li>
@@ -62,6 +61,6 @@ export function Su() {
           effective in a short period of time
         </li>
       </ul>
-    </>
+    </div>
   );
 }

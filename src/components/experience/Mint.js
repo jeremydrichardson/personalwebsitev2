@@ -1,11 +1,10 @@
 export function Mint() {
   return (
-    <>
-      <h2 className="company-name">
-        Mint Mobile/Ultra Mobile&nbsp;&nbsp;&nbsp;
-        <span className="position-title">Senior Software Engineer</span>
-      </h2>
-      <p className="position-date-range">2022 - Present</p>
+    <div>
+      <p className="experience-role">
+        <strong>Senior Software Engineer</strong>
+      </p>
+      <p className="experience-dates">2022 - Present</p>
 
       <h3>Lead UI component team</h3>
       <ul className="project-summary">
@@ -15,6 +14,6 @@ export function Mint() {
         </li>
         <li>Consulted with creative team to unify UI efforts</li>
       </ul>
-    </>
+    </div>
   );
 }

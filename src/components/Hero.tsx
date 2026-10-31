@@ -1,33 +1,54 @@
-import React from "react";
-import Image from "next/image";
+"use client";
 
-const Hero = () => {
+import { useRouter } from "next/navigation";
+import { WelkAvatar, WelkButton } from "@welkui/react";
+
+export function Hero() {
+  const router = useRouter();
+
+  const goToPosts = () => {
+    const posts = document.getElementById("posts");
+    if (posts) {
+      posts.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+    router.push("/#posts");
+  };
+
   return (
-    <div className="hero">
-      <div className="hero-container">
-        <div className="hero-content">
-          <h1 className="title">
-            Hi, I&apos;m <span className="name">Jeremy Richardson</span>
-          </h1>
-          <p className="prose">
-            I&apos;m a full stack developer building software solutions to make
-            your life better
+    <section className="hero" aria-label="Introduction">
+      <div className="hero-inner">
+        <div className="hero-copy">
+          <h1 className="hero-brand">Jeremy Richardson</h1>
+          <p className="hero-tagline">
+            Full stack developer building software solutions that make life
+            better — with a little comic relief.
           </p>
+          <div className="hero-actions">
+            <WelkButton size="lg" onClick={goToPosts}>
+              Read the blog
+            </WelkButton>
+            <WelkButton
+              size="lg"
+              variant="secondary"
+              onClick={() => router.push("/experience")}
+            >
+              See experience
+            </WelkButton>
+          </div>
         </div>
-        <div className="hero-image hero-section">
-          <div className="profile-picture-border">
-            <Image
-              src="/img/jeremy-profile@2x.png"
-              width="200"
-              height="200"
-              className="profile-picture"
+        <div className="hero-portrait">
+          <div className="hero-portrait-frame">
+            <WelkAvatar
               alt="Jeremy Richardson"
+              src="/img/jeremy-profile@2x.png"
+              size="lg"
+              growOnHover
+              style={{ width: "12rem", height: "12rem" }}
             />
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
-};
-
-export { Hero };
+}

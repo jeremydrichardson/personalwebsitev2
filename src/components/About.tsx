@@ -1,20 +1,29 @@
 import Link from "next/link";
-import React from "react";
+import { WelkBadge, WelkDivider } from "@welkui/react";
 
-const About = () => {
+export function About() {
   return (
-    <>
-      <h2>About</h2>
-      <div className="prose">
+    <section className="section" id="about" aria-labelledby="about-heading">
+      <h2 id="about-heading" className="section-heading">
+        About
+      </h2>
+      <p className="section-lede">
+        A little origin story before the plot twists.
+      </p>
+      <div className="about-grid comic-panel">
+        <div style={{ marginBottom: "0.85rem" }}>
+          <WelkBadge variant="success">Mint Mobile</WelkBadge>
+        </div>
         <p>
           My current mission with{" "}
           <a href="https://www.mintmobile.com">Mint Mobile</a> is to lead a team
-          as we build a modern a UI component library to support the ecommerce
+          as we build a modern UI component library to support the ecommerce
           division using <a href="https://reactjs.org/">React</a>.{" "}
           <em>
             <Link href="/experience">Learn more...</Link>
           </em>
         </p>
+        <WelkDivider variant="dashed" />
         <p>
           My past had led me through a number of creative fields including film
           and television production, audio production as both a musician and
@@ -27,8 +36,6 @@ const About = () => {
           entertainment realms.
         </p>
       </div>
-    </>
+    </section>
   );
-};
-
-export { About };
+}
