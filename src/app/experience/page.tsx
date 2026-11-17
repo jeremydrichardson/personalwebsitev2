@@ -1,10 +1,10 @@
 "use client";
 
-import "../../components/webawesome/register";
+import { TimelineMarker } from "../../design-system";
 import { Mint } from "../../components/experience/Mint";
 import { Su } from "../../components/experience/Su";
-import { Tdc } from "../../components/experience/Tdc";
 import { SiteNav } from "../../components/SiteNav";
+import { Tdc } from "../../components/experience/Tdc";
 
 const roles = [
   { id: "mint", content: <Mint /> },
@@ -21,9 +21,7 @@ export default function Experience() {
         <ol className="experience-timeline">
           {roles.map((role) => (
             <li key={role.id} className="experience-item">
-              <div className="experience-marker" aria-hidden="true">
-                <wa-icon name="briefcase" label="" />
-              </div>
+              <TimelineMarker />
               <div className="experience-panel">{role.content}</div>
             </li>
           ))}

@@ -4,6 +4,7 @@ import { SiteNav } from "../components/SiteNav";
 import { Hero } from "../components/Hero";
 import { About } from "../components/About";
 import { Tech } from "../components/Tech";
+import { SectionRule } from "../design-system/atoms/SectionRule";
 
 export default async function Home() {
   const wpPosts = await getPosts("publish", 99);
@@ -18,11 +19,11 @@ export default async function Home() {
           <About />
         </section>
 
-        <hr className="section-rule" />
+        <SectionRule />
 
         <Tech />
 
-        <hr className="section-rule" />
+        <SectionRule />
 
         <section className="section" aria-labelledby="posts">
           <h2 id="posts">Posts</h2>

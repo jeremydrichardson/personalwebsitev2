@@ -1,6 +1,5 @@
 "use client";
 
-import "./webawesome/register";
 import TechIcon from "./TechIcon";
 
 const techItems = [

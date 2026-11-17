@@ -1,6 +1,6 @@
 "use client";
 
-import "./webawesome/register";
+import { Button } from "../design-system";
 
 const links = [
   { href: "/", label: "About" },
@@ -15,14 +15,14 @@ export function SiteNav() {
         <ul>
           {links.map((link) => (
             <li key={link.href}>
-              <wa-button
+              <Button
                 href={link.href}
                 appearance="plain"
                 variant="neutral"
                 size="small"
               >
                 {link.label}
-              </wa-button>
+              </Button>
             </li>
           ))}
         </ul>

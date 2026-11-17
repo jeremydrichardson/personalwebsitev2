@@ -1,6 +1,6 @@
 "use client";
 
-import "../webawesome/register";
+import { Details } from "../../design-system";
 
 export function Tdc() {
   return (
@@ -17,7 +17,7 @@ export function Tdc() {
         <li>Implemented using AWS API Gateway</li>
         <li>Redesigned data structures</li>
       </ul>
-      <wa-details summary="Overview" appearance="outlined">
+      <Details summary="Overview" appearance="outlined">
         <p>
           In order to release a legacy flagship product from its FileMaker
           roots, we needed to build a method to access the data. We decided upon
@@ -41,8 +41,8 @@ export function Tdc() {
             gave us the opportunity to redefine our models and data structure.
           </li>
         </ol>
-      </wa-details>
-      <wa-details summary="AWS API Gateway and OpenAPI" appearance="outlined">
+      </Details>
+      <Details summary="AWS API Gateway and OpenAPI" appearance="outlined">
         <p>
           AWS API Gateway provides an effective framework for building an API.
           We designed the system using CloudFormation in order to assure
@@ -67,8 +67,8 @@ export function Tdc() {
           structure into what makes sense for present day usage while providing
           flexibility for the future.
         </p>
-      </wa-details>
-      <wa-details summary="Node Express Server" appearance="outlined">
+      </Details>
+      <Details summary="Node Express Server" appearance="outlined">
         <p>
           The API Gateway is integrated with a Node Express server to handle the
           requests. This gave us the opportunity to transform the data as
@@ -103,7 +103,7 @@ export function Tdc() {
           sure it has the latest source. Tests are run and the build step run
           before an automated release is triggered based on semantic versioning.
         </p>
-      </wa-details>
+      </Details>
 
       <h3>Built a PWA that augments legacy product features</h3>
       <ul className="project-summary">
@@ -113,7 +113,7 @@ export function Tdc() {
         <li>Material UI components and custom theme</li>
         <li>AWS Amplify CI/CD pipeline</li>
       </ul>
-      <wa-details summary="Overview" appearance="outlined">
+      <Details summary="Overview" appearance="outlined">
         <p>
           Our existing FileMaker based solution requires the FileMaker Pro
           client to run. We needed to move to a more modern app based approach.
@@ -135,7 +135,7 @@ export function Tdc() {
           pipeline to run tests, build the source before an automated release is
           triggered based on semantic versioning.
         </p>
-      </wa-details>
+      </Details>
       <h3>
         Designed and Implemented Cloud Infrastructure for flagship product
       </h3>
@@ -148,7 +148,7 @@ export function Tdc() {
         <li>SAML federation with multiple IdPs</li>
         <li>Automated Windows config with PowerShell</li>
       </ul>
-      <wa-details summary="Overview" appearance="outlined">
+      <Details summary="Overview" appearance="outlined">
         <p>
           In order to be able to build any web based products on top of the
           legacy flagship product, we would need to move it to the cloud. This
@@ -189,7 +189,7 @@ export function Tdc() {
           public access to the FileMaker server. AppStream provides the client
           window to the user, which is an encrypted video stream.
         </p>
-      </wa-details>
+      </Details>
       <h3>Mentor</h3>
       <ul className="project-summary">
         <li>Train FileMaker developers from scratch</li>
@@ -197,7 +197,7 @@ export function Tdc() {
         <li>Frequent pair programming</li>
         <li>Development of training materials</li>
       </ul>
-      <wa-details summary="Overview" appearance="outlined">
+      <Details summary="Overview" appearance="outlined">
         <p>
           Two of our team had been exclusively FileMaker developers. We needed a
           way to expand their skills to match the direction of new development.
@@ -212,7 +212,7 @@ export function Tdc() {
           would assist them in their learning and pair programmed regularly to
           give them exposure to the real world problems we were solving.
         </p>
-      </wa-details>
+      </Details>
     </>
   );
 }
