@@ -1,16 +1,35 @@
-import React from "react";
-import { IconType } from "react-icons/lib";
+"use client";
 
-interface Props {
-  Icon: IconType;
+interface TechIconProps {
+  id: string;
+  name: string;
   title: string;
   tooltip: string;
+  family?: "brands" | "classic";
 }
 
-export default function TechIcon({ Icon, title, tooltip }: Props) {
+export default function TechIcon({
+  id,
+  name,
+  title,
+  tooltip,
+  family = "brands",
+}: TechIconProps) {
+  const iconId = `tech-${id}`;
+
   return (
-    <div className="tech-tooltip" data-text={tooltip}>
-      <Icon title={title} size="3em" />
-    </div>
+    <>
+      <button
+        type="button"
+        className="tech-icon"
+        id={iconId}
+        aria-label={title}
+      >
+        <wa-icon name={name} family={family} label={title} />
+      </button>
+      <wa-tooltip for={iconId} placement="top" style={{ "--max-width": "280px" }}>
+        {tooltip}
+      </wa-tooltip>
+    </>
   );
 }

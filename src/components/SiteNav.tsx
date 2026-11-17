@@ -1,20 +1,32 @@
-import Link from "next/link";
-import styles from "./../styles/sitenav.module.css";
+"use client";
+
+import "./webawesome/register";
+
+const links = [
+  { href: "/", label: "About" },
+  { href: "/#posts", label: "Blog" },
+  { href: "/experience", label: "Experience" },
+] as const;
 
 export function SiteNav() {
   return (
-    <nav className={`site-navigation ${styles.siteNavigation}`}>
-      <ul>
-        <li>
-          <Link href="/">About</Link>
-        </li>
-        <li>
-          <Link href="/#posts">Blog</Link>
-        </li>
-        <li>
-          <Link href="/experience">Experience</Link>
-        </li>
-      </ul>
-    </nav>
+    <header className="site-header">
+      <nav className="site-navigation" aria-label="Primary">
+        <ul>
+          {links.map((link) => (
+            <li key={link.href}>
+              <wa-button
+                href={link.href}
+                appearance="plain"
+                variant="neutral"
+                size="small"
+              >
+                {link.label}
+              </wa-button>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
   );
 }
