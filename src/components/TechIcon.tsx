@@ -1,16 +1,12 @@
-import React from "react";
-import { IconType } from "react-icons/lib";
+"use client";
 
-interface Props {
-  Icon: IconType;
-  title: string;
-  tooltip: string;
-}
+import {
+  IconWithTooltip,
+  type IconWithTooltipProps,
+} from "../design-system";
 
-export default function TechIcon({ Icon, title, tooltip }: Props) {
-  return (
-    <div className="tech-tooltip" data-text={tooltip}>
-      <Icon title={title} size="3em" />
-    </div>
-  );
+export type TechIconProps = IconWithTooltipProps;
+
+export default function TechIcon(props: TechIconProps) {
+  return <IconWithTooltip {...props} />;
 }

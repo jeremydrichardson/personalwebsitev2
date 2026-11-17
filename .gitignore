@@ -38,3 +38,6 @@ pnpm-debug.log*
 
 # caches
 tsconfig.tsbuildinfo
+*storybook.log
+storybook-static
+/public/sb

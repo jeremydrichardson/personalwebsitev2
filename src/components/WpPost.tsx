@@ -2,14 +2,6 @@ import Link from "next/link";
 import { format, parseISO } from "date-fns";
 import { WP_REST_API_Post } from "wp-types";
 
-interface PostData {
-  content: string;
-  createDate: string;
-  modifiedDate: string;
-  slug: string;
-  frontmatter: any;
-}
-
 interface PostProps {
   post: WP_REST_API_Post;
 }
@@ -22,7 +14,7 @@ export default function Post({ post }: PostProps) {
           <span dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
         </Link>
       </h3>
-      <time className="post-item-date">
+      <time className="post-item-date" dateTime={post.date}>
         {format(parseISO(post.date), "MMM d, yyyy")}
       </time>
       <div dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />

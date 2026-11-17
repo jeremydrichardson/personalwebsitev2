@@ -1,9 +1,10 @@
-import Link from "next/link";
 import Layout from "../../../components/Layout";
 import { format, parseISO } from "date-fns";
 import { getPosts, getPost, getTagsByPost } from "../../../lib/wordpress";
 import { polyfill } from "interweave-ssr";
 import { WpRenderBlock } from "../../../components/WpRenderBlock/WpRenderBlock";
+import { BlogBackButton } from "../../../components/BlogBackButton";
+import { SiteNav } from "../../../components/SiteNav";
 
 polyfill();
 
@@ -31,35 +32,32 @@ export default async function PostPage({
 
   return (
     <>
+      <SiteNav />
       <Layout>
-        <div className="container prose prose-sm md:prose">
-          <Link href="/" className="btn btn-back">
-            Go Back
-          </Link>
-          <div className="card card-page">
-            <h1
-              className="post-title"
-              dangerouslySetInnerHTML={{ __html: title.rendered }}
-            />
-            <div className="post-create-date">
-              Posted:&nbsp;
-              <time dateTime={date}>{createDateFormatted}</time>
-            </div>
-            {createDateFormatted !== modifiedDateFormatted && (
-              <div className="post-modified-date">
-                Last modified:&nbsp;
-                <time dateTime={modified}>{modifiedDateFormatted}</time>
-              </div>
-            )}
-            {tags && postTags && (
-              <div className="post-tags">
-                Tags: {postTags.map((postTag) => postTag.name).join(", ")}
-              </div>
-            )}
-            {parsed_content?.map((block, index) => {
-              return <WpRenderBlock key={index} block={block} />;
-            })}
+        <div className="container prose">
+          <BlogBackButton />
+          <h1
+            className="post-title"
+            dangerouslySetInnerHTML={{ __html: title.rendered }}
+          />
+          <div className="post-create-date">
+            Posted:&nbsp;
+            <time dateTime={date}>{createDateFormatted}</time>
           </div>
+          {createDateFormatted !== modifiedDateFormatted && (
+            <div className="post-modified-date">
+              Last modified:&nbsp;
+              <time dateTime={modified}>{modifiedDateFormatted}</time>
+            </div>
+          )}
+          {tags && postTags && (
+            <div className="post-tags">
+              Tags: {postTags.map((postTag) => postTag.name).join(", ")}
+            </div>
+          )}
+          {parsed_content?.map((block, index) => {
+            return <WpRenderBlock key={index} block={block} />;
+          })}
         </div>
       </Layout>
     </>

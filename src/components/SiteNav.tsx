@@ -1,20 +1,32 @@
-import Link from "next/link";
-import styles from "./../styles/sitenav.module.css";
+"use client";
+
+import { Button } from "../design-system";
+
+const links = [
+  { href: "/", label: "About" },
+  { href: "/#posts", label: "Blog" },
+  { href: "/experience", label: "Experience" },
+] as const;
 
 export function SiteNav() {
   return (
-    <nav className={`site-navigation ${styles.siteNavigation}`}>
-      <ul>
-        <li>
-          <Link href="/">About</Link>
-        </li>
-        <li>
-          <Link href="/#posts">Blog</Link>
-        </li>
-        <li>
-          <Link href="/experience">Experience</Link>
-        </li>
-      </ul>
-    </nav>
+    <header className="site-header">
+      <nav className="site-navigation" aria-label="Primary">
+        <ul>
+          {links.map((link) => (
+            <li key={link.href}>
+              <Button
+                href={link.href}
+                appearance="plain"
+                variant="neutral"
+                size="small"
+              >
+                {link.label}
+              </Button>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
   );
 }

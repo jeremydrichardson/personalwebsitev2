@@ -1,0 +1,32 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Design System/Introduction" />
+
+# Design system
+
+A very small set of **leaf** components for this site — atoms and molecules only.
+
+## Atoms
+
+| Component | Role |
+| --- | --- |
+| `Button` | Text/action control (`wa-button`) |
+| `Icon` | Font Awesome icon (`wa-icon`) |
+| `Tooltip` | Hover/focus hint (`wa-tooltip`) |
+| `Details` | Expand/collapse disclosure (`wa-details`) |
+| `SectionRule` | Quiet section divider |
+
+## Molecules
+
+| Component | Role |
+| --- | --- |
+| `IconWithTooltip` | Icon control + tooltip |
+| `BackButton` | Back navigation with arrow |
+| `TimelineMarker` | Experience timeline node |
+
+Organisms (nav, hero, tech grid, posts, full experience page) stay in `src/components` and compose these leaves.
+
+## Viewing Storybook
+
+- Local: `pnpm storybook` → http://localhost:6006
+- Vercel preview/production: `/sb/` on the same site URL (built into `public/sb` during `pnpm build`)

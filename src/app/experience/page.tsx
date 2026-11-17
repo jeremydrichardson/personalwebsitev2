@@ -1,50 +1,31 @@
 "use client";
 
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
-import { Tdc } from "../../components/experience/Tdc";
-import { Su } from "../../components/experience/Su";
-import { FaBriefcase } from "react-icons/fa";
-import { SiteNav } from "../../components/SiteNav";
+import { TimelineMarker } from "../../design-system";
 import { Mint } from "../../components/experience/Mint";
+import { Su } from "../../components/experience/Su";
+import { SiteNav } from "../../components/SiteNav";
+import { Tdc } from "../../components/experience/Tdc";
+
+const roles = [
+  { id: "mint", content: <Mint /> },
+  { id: "tdc", content: <Tdc /> },
+  { id: "su", content: <Su /> },
+] as const;
 
 export default function Experience() {
   return (
     <>
       <SiteNav />
       <main className="main">
-        <VerticalTimeline layout="1-column-left" lineColor="#eee">
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            contentStyle={{ background: "#eee" }}
-            contentArrowStyle={{ borderRight: "7px solid  #999" }}
-            iconStyle={{ background: "#444", color: "#fff" }}
-            icon={<FaBriefcase />}
-          >
-            <Mint />
-          </VerticalTimelineElement>
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            contentStyle={{ background: "#eee" }}
-            contentArrowStyle={{ borderRight: "7px solid  #999" }}
-            iconStyle={{ background: "#444", color: "#fff" }}
-            icon={<FaBriefcase />}
-          >
-            <Tdc />
-          </VerticalTimelineElement>
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            contentStyle={{ background: "#eee" }}
-            contentArrowStyle={{ borderRight: "7px solid  #999" }}
-            iconStyle={{ background: "#444", color: "#fff" }}
-            icon={<FaBriefcase />}
-          >
-            <Su />
-          </VerticalTimelineElement>
-        </VerticalTimeline>
+        <h1>Experience</h1>
+        <ol className="experience-timeline">
+          {roles.map((role) => (
+            <li key={role.id} className="experience-item">
+              <TimelineMarker />
+              <div className="experience-panel">{role.content}</div>
+            </li>
+          ))}
+        </ol>
       </main>
     </>
   );

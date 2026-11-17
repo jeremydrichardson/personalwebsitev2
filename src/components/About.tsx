@@ -4,7 +4,7 @@ import React from "react";
 const About = () => {
   return (
     <>
-      <h2>About</h2>
+      <h2 id="about-heading">About</h2>
       <div className="prose">
         <p>
           My current mission with{" "}
