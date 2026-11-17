@@ -5,12 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "pnpm build-storybook:site && next build",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build -o storybook-static",
+    "build-storybook:site": "STORYBOOK_BASE_PATH=/sb/ storybook build -o storybook-static && node scripts/embed-storybook.mjs"
   },
   "dependencies": {
     "@awesome.me/webawesome": "^3.14.0",

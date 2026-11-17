@@ -18,5 +18,15 @@ const config = {
       },
     ],
   },
+  // Storybook is copied into public/sb during `pnpm build`.
+  // Serve the SPA shell at /sb (Next would otherwise 404 without index routing).
+  async rewrites() {
+    return [
+      {
+        source: "/sb",
+        destination: "/sb/index.html",
+      },
+    ];
+  },
 };
 export default config;
